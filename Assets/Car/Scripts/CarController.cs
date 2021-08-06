@@ -217,51 +217,53 @@ public class CarController :MonoBehaviour
 	/// </summary>
 	void UpdateSteerAngleLogic ()
 	{
-		var needHelp = SpeedInHour > MinSpeedForSteerHelp && CarDirection > 0;
-		float targetAngle = 0;
+		// var needHelp = SpeedInHour > MinSpeedForSteerHelp && CarDirection > 0;
+		// float targetAngle = 0;
 		VelocityAngle = -Vector3.SignedAngle (RB.velocity, transform.TransformDirection (Vector3.forward), Vector3.up);
 
-		if (needHelp)
-		{
-			//Wheel turning helper.
-			targetAngle = Mathf.Clamp (VelocityAngle * HelpSteerPower, -MaxSteerAngle, MaxSteerAngle);
-		}
+		// if (needHelp)
+		// {
+		// 	//Wheel turning helper.
+		// 	targetAngle = Mathf.Clamp (VelocityAngle * HelpSteerPower, -MaxSteerAngle, MaxSteerAngle);
+		// }
 
 		//Wheel turn limitation.
-		targetAngle = Mathf.Clamp (targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10);
+		// targetAngle = Mathf.Clamp (targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10);
 
 		//Front wheel turn.
-		Wheels[0].WheelCollider.steerAngle = targetAngle;
-		Wheels[1].WheelCollider.steerAngle = targetAngle;
+		float targetAngle = -MaxSteerAngle * TouchInput.centeredScreenPosition.x;
+		// Wheels[0].WheelCollider.steerAngle = targetAngle;
+		// Wheels[1].WheelCollider.steerAngle = targetAngle;
+		RB.angularVelocity = new Vector3(RB.angularVelocity.x, targetAngle, RB.angularVelocity.z);
 
-		if (needHelp)
-		{
-			//Angular velocity helper.
-			var absAngle = Mathf.Abs (VelocityAngle);
+		// if (needHelp)
+		// {
+		// 	//Angular velocity helper.
+		// 	var absAngle = Mathf.Abs (VelocityAngle);
 
-			//Get current procent help angle.
-			float currentAngularProcent = absAngle / MaxAngularVelocityHelpAngle;
+		// 	//Get current procent help angle.
+		// 	float currentAngularProcent = absAngle / MaxAngularVelocityHelpAngle;
 
-			var currAngle = RB.angularVelocity;
+		// 	var currAngle = RB.angularVelocity;
 
-			if (VelocityAngle * CurrentSteerAngle > 0)
-			{
-				//Turn to the side opposite to the angle. To change the angular velocity.
-				var angularVelocityMagnitudeHelp = OppositeAngularVelocityHelpPower * CurrentSteerAngle * Time.fixedDeltaTime;
-				currAngle.y += angularVelocityMagnitudeHelp * currentAngularProcent;
-			}
-			else if (!Mathf.Approximately (CurrentSteerAngle, 0))
-			{
-				//Turn to the side positive to the angle. To change the angular velocity.
-				var angularVelocityMagnitudeHelp = PositiveAngularVelocityHelpPower * CurrentSteerAngle * Time.fixedDeltaTime;
-				currAngle.y += angularVelocityMagnitudeHelp * (1 - currentAngularProcent);
-			}
+		// 	if (VelocityAngle * CurrentSteerAngle > 0)
+		// 	{
+		// 		//Turn to the side opposite to the angle. To change the angular velocity.
+		// 		var angularVelocityMagnitudeHelp = OppositeAngularVelocityHelpPower * CurrentSteerAngle * Time.fixedDeltaTime;
+		// 		currAngle.y += angularVelocityMagnitudeHelp * currentAngularProcent;
+		// 	}
+		// 	else if (!Mathf.Approximately (CurrentSteerAngle, 0))
+		// 	{
+		// 		//Turn to the side positive to the angle. To change the angular velocity.
+		// 		var angularVelocityMagnitudeHelp = PositiveAngularVelocityHelpPower * CurrentSteerAngle * Time.fixedDeltaTime;
+		// 		currAngle.y += angularVelocityMagnitudeHelp * (1 - currentAngularProcent);
+		// 	}
 
-			//Clamp and apply of angular velocity.
-			var maxMagnitude = ((AngularVelucityInMaxAngle - AngularVelucityInMinAngle) * currentAngularProcent) + AngularVelucityInMinAngle;
-			currAngle.y = Mathf.Clamp (currAngle.y, -maxMagnitude, maxMagnitude);
-			RB.angularVelocity = currAngle;
-		}
+		// 	//Clamp and apply of angular velocity.
+		// 	var maxMagnitude = ((AngularVelucityInMaxAngle - AngularVelucityInMinAngle) * currentAngularProcent) + AngularVelucityInMinAngle;
+		// 	currAngle.y = Mathf.Clamp (currAngle.y, -maxMagnitude, maxMagnitude);
+		// 	RB.angularVelocity = currAngle;
+		// }
 	}
 
 	#endregion //Steer help logic
@@ -294,22 +296,22 @@ public class CarController :MonoBehaviour
 			}
 		}
 
-		if (!GameController.RaceIsStarted)
-		{
-			if (InCutOff)
-				return;
+		// if (!GameController.RaceIsStarted)
+		// {
+		// 	if (InCutOff)
+		// 		return;
 
-			float rpm = CurrentAcceleration > 0 ? MaxRPM : MinRPM;
-			float speed = CurrentAcceleration > 0 ? RpmEngineToRpmWheelsLerpSpeed : RpmEngineToRpmWheelsLerpSpeed * 0.2f;
-			EngineRPM = Mathf.Lerp (EngineRPM, rpm, speed * Time.fixedDeltaTime);
-			if (EngineRPM >= CutOffRPM)
-			{
-				PlayBackfireWithProbability ();
-				InCutOff = true;
-				CutOffTimer = CarConfig.CutOffTime;
-			}
-			return;
-		}
+		// 	float rpm = CurrentAcceleration > 0 ? MaxRPM : MinRPM;
+		// 	float speed = CurrentAcceleration > 0 ? RpmEngineToRpmWheelsLerpSpeed : RpmEngineToRpmWheelsLerpSpeed * 0.2f;
+		// 	EngineRPM = Mathf.Lerp (EngineRPM, rpm, speed * Time.fixedDeltaTime);
+		// 	if (EngineRPM >= CutOffRPM)
+		// 	{
+		// 		PlayBackfireWithProbability ();
+		// 		InCutOff = true;
+		// 		CutOffTimer = CarConfig.CutOffTime;
+		// 	}
+		// 	return;
+		// }
 
 		//Get drive wheel with MinRPM.
 		float minRPM = 0;
