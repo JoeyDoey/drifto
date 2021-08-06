@@ -4,8 +4,9 @@ using UnityEngine;
 
 /// <summary>
 /// Main car controller
+/// Original asset: Arcade Car Controller (Lite version) by Perfect Games
+/// Modified by Unlucky Duck
 /// </summary>
-
 [RequireComponent (typeof (Rigidbody))]
 public class CarController :MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class CarController :MonoBehaviour
 	#region Properties of car parameters
 
 	float MaxMotorTorque;
-	float MaxSteerAngle { get { return CarConfig.MaxSteerAngle; } }
+	float MaxSteerSpeed { get { return CarConfig.MaxSteerSpeed; } }
 	DriveType DriveType { get { return CarConfig.DriveType; } }
 	bool AutomaticGearBox { get { return CarConfig.AutomaticGearBox; } }
 	AnimationCurve MotorTorqueFromRpmCurve { get { return CarConfig.MotorTorqueFromRpmCurve; } }
@@ -84,7 +85,7 @@ public class CarController :MonoBehaviour
 	public float SpeedInHour { get { return CurrentSpeed * C.KPHMult; } }
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
 
-	float CurrentSteerAngle;
+	float CurrentSteerSpeed;
 	float CurrentAcceleration;
 	float CurrentBrake;
     bool InHandBrake;
@@ -141,24 +142,14 @@ public class CarController :MonoBehaviour
 	}
 
 	/// <summary>
-	/// Update controls of car, from user control (TODO AI control).
+	/// Update controls of car, from user control.
 	/// </summary>
-	/// <param name="horizontal">Turn direction</param>
-	/// <param name="vertical">Acceleration</param>
-	/// <param name="brake">Brake</param>
-	public void UpdateControls (float horizontal, float vertical, bool handBrake)
+	/// <param name="horizontal">How much to turn (-1 to 1)</param>
+	/// <param name="vertical">Acceleration (0 to 1)</param>
+	public void UpdateControls (float horizontal, float vertical)
 	{
-		float targetSteerAngle = horizontal * MaxSteerAngle;
-
-		if (EnableSteerAngleMultiplier)
-		{
-			targetSteerAngle *= Mathf.Clamp (1 - SpeedInHour / MaxSpeedForMinAngleMultiplier, MinSteerAngleMultiplier, MaxSteerAngleMultiplier);
-		}
-
-		CurrentSteerAngle = Mathf.MoveTowards (CurrentSteerAngle, targetSteerAngle, Time.deltaTime * SteerAngleChangeSpeed);
-
+		CurrentSteerSpeed = horizontal;
 		CurrentAcceleration = vertical;
-        InHandBrake = handBrake;
 	}
 
 	private void Update ()
@@ -217,53 +208,8 @@ public class CarController :MonoBehaviour
 	/// </summary>
 	void UpdateSteerAngleLogic ()
 	{
-		// var needHelp = SpeedInHour > MinSpeedForSteerHelp && CarDirection > 0;
-		// float targetAngle = 0;
-		VelocityAngle = -Vector3.SignedAngle (RB.velocity, transform.TransformDirection (Vector3.forward), Vector3.up);
-
-		// if (needHelp)
-		// {
-		// 	//Wheel turning helper.
-		// 	targetAngle = Mathf.Clamp (VelocityAngle * HelpSteerPower, -MaxSteerAngle, MaxSteerAngle);
-		// }
-
-		//Wheel turn limitation.
-		// targetAngle = Mathf.Clamp (targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10);
-
-		//Front wheel turn.
-		float targetAngle = -MaxSteerAngle * TouchInput.centeredScreenPosition.x;
-		// Wheels[0].WheelCollider.steerAngle = targetAngle;
-		// Wheels[1].WheelCollider.steerAngle = targetAngle;
+		float targetAngle = -MaxSteerSpeed * CurrentSteerSpeed;
 		RB.angularVelocity = new Vector3(RB.angularVelocity.x, targetAngle, RB.angularVelocity.z);
-
-		// if (needHelp)
-		// {
-		// 	//Angular velocity helper.
-		// 	var absAngle = Mathf.Abs (VelocityAngle);
-
-		// 	//Get current procent help angle.
-		// 	float currentAngularProcent = absAngle / MaxAngularVelocityHelpAngle;
-
-		// 	var currAngle = RB.angularVelocity;
-
-		// 	if (VelocityAngle * CurrentSteerAngle > 0)
-		// 	{
-		// 		//Turn to the side opposite to the angle. To change the angular velocity.
-		// 		var angularVelocityMagnitudeHelp = OppositeAngularVelocityHelpPower * CurrentSteerAngle * Time.fixedDeltaTime;
-		// 		currAngle.y += angularVelocityMagnitudeHelp * currentAngularProcent;
-		// 	}
-		// 	else if (!Mathf.Approximately (CurrentSteerAngle, 0))
-		// 	{
-		// 		//Turn to the side positive to the angle. To change the angular velocity.
-		// 		var angularVelocityMagnitudeHelp = PositiveAngularVelocityHelpPower * CurrentSteerAngle * Time.fixedDeltaTime;
-		// 		currAngle.y += angularVelocityMagnitudeHelp * (1 - currentAngularProcent);
-		// 	}
-
-		// 	//Clamp and apply of angular velocity.
-		// 	var maxMagnitude = ((AngularVelucityInMaxAngle - AngularVelucityInMinAngle) * currentAngularProcent) + AngularVelucityInMinAngle;
-		// 	currAngle.y = Mathf.Clamp (currAngle.y, -maxMagnitude, maxMagnitude);
-		// 	RB.angularVelocity = currAngle;
-		// }
 	}
 
 	#endregion //Steer help logic
@@ -478,7 +424,7 @@ public class CarController :MonoBehaviour
 public class CarConfig
 {
 	[Header("Steer Settings")]
-	public float MaxSteerAngle = 25;
+	public float MaxSteerSpeed = 25;
 
 	[Header("Engine and power settings")]
 	public DriveType DriveType = DriveType.RWD;				//Drive type AWD, FWD, RWD. With the current parameters of the car only RWD works well. TODO Add rally and offroad regime.
