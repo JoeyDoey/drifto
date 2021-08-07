@@ -210,6 +210,7 @@ public class CarController :MonoBehaviour
 	{
 		float targetAngle = -MaxSteerSpeed * CurrentSteerSpeed;
 		RB.angularVelocity = new Vector3(RB.angularVelocity.x, targetAngle, RB.angularVelocity.z);
+		VelocityAngle = -Vector3.SignedAngle (RB.velocity, transform.TransformDirection (Vector3.forward), Vector3.up);
 	}
 
 	#endregion //Steer help logic

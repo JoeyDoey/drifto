@@ -1,0 +1,17 @@
+Car controller package
+
+Original: Arcade Car Controller (Lite version) by Perfect Games
+Modified by Unlucky Duck
+
+How to use ========================================================================================
+Drag car (SunLineGTE) into the scene
+Drag FXController (FXController > FXController) into scene
+
+Attach SmoothFollow to camera and set the target to the car to have camera follow car.
+
+
+Controls ========================================================================================
+Car will automatically accelerate
+Steer by pressing on screen and moving cursor left and right.
+    - left of screen = max left turn
+    - right of screen = max right turn
