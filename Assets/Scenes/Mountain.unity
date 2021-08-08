@@ -1704,6 +1704,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 1781277537}
+  minAngle: 10
+  minSpeed: 10
+  masterMultiplier: 0.1
 --- !u!4 &1468946250
 Transform:
   m_ObjectHideFlags: 0
@@ -1813,7 +1816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1543011911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2878,8 +2881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1cb04eeed002b4293f938b9e9ca934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  clippingPointsText: {fileID: 0}
+  scoreText: {fileID: 1507919312}
+  clippingPointsText: {fileID: 1543011912}
 --- !u!1001 &3217684672021209197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2949,6 +2952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: CarConfig.MaxMotorTorque
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274180005872914, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: MaxAngle
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
