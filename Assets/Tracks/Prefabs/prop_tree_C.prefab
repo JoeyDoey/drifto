@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6a4a38de4989148b7e7df748eff84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockX: 0
+  lockX: 1
   lockY: 0
-  lockZ: 0
+  lockZ: 1
   min: 0
   max: 360
