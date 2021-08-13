@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 /// <summary>
 /// FX and sounds effects.
 /// </summary>
-public class FXController :Singleton<FXController>
+public class FXController :MonoBehaviour
 {
 
 	[Header("Particles settings")]
@@ -18,7 +18,7 @@ public class FXController :Singleton<FXController>
 	[SerializeField] Transform TrailsHolder;                    //Parent for copy of TrailRef.
 
 
-	protected override void AwakeSingleton ()
+	void Awake ()
 	{
 		//Hide ref objects.
 		TrailRef.gameObject.SetActive (false);
