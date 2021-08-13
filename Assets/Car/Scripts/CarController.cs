@@ -8,7 +8,7 @@ using UnityEngine;
 /// Modified by Unlucky Duck
 /// </summary>
 [RequireComponent (typeof (Rigidbody))]
-public class CarController :MonoBehaviour
+public class CarController : Car
 {
 
 	[SerializeField] Wheel FrontLeftWheel;
@@ -150,6 +150,14 @@ public class CarController :MonoBehaviour
 	{
 		CurrentSteerSpeed = horizontal;
 		CurrentAcceleration = vertical;
+	}
+
+	public override float GetDriftAngle() {
+		return VelocityAngle;
+	}
+
+	public override Vector3 GetVelocity() {
+		return RB.velocity;
 	}
 
 	private void Update ()
