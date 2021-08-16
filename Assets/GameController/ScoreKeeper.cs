@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreKeeper : MonoBehaviour
 {
     public float score;
-    public CarController car;
+    public Car.CarController car;
     public float minAngle = 10;
     public float minSpeed = 10;
     public float masterMultiplier = 0.1f;

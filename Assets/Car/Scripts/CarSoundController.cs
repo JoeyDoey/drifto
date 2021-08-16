@@ -2,62 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Car sound controller, for play car sound effects
-/// </summary>
-
-[RequireComponent (typeof (CarController))]
-public class CarSoundController :MonoBehaviour
+namespace Car
 {
+    /// <summary>
+    /// Car sound controller, for play car sound effects
+    /// </summary>
 
-	[Header("Engine sounds")]
-	[SerializeField] AudioClip EngineIdleClip;
-	[SerializeField] AudioClip EngineBackFireClip;
-	[SerializeField] float PitchOffset = 0.5f;
-	[SerializeField] AudioSource EngineSource;
+    [RequireComponent(typeof(CarController))]
+    public class CarSoundController : MonoBehaviour
+    {
 
-	[Header("Slip sounds")]
-	[SerializeField] AudioSource SlipSource;
-	[SerializeField] float MinSlipSound = 0.15f;
-	[SerializeField] float MaxSlipForSound = 1f;
+        [Header("Engine sounds")]
+        [SerializeField] AudioClip EngineIdleClip;
+        [SerializeField] AudioClip EngineBackFireClip;
+        [SerializeField] float PitchOffset = 0.5f;
+        [SerializeField] AudioSource EngineSource;
 
-	CarController CarController;
+        [Header("Slip sounds")]
+        [SerializeField] AudioSource SlipSource;
+        [SerializeField] float MinSlipSound = 0.15f;
+        [SerializeField] float MaxSlipForSound = 1f;
 
-	float MaxRPM { get { return CarController.GetMaxRPM; } }
-	float EngineRPM { get { return CarController.EngineRPM; } }
+        CarController CarController;
 
-	private void Awake ()
-	{
-		CarController = GetComponent<CarController> ();
-		CarController.BackFireAction += PlayBackfire;
-	}
+        float MaxRPM { get { return CarController.GetMaxRPM; } }
+        float EngineRPM { get { return CarController.EngineRPM; } }
 
-	void Update ()
-	{
+        private void Awake()
+        {
+            CarController = GetComponent<CarController>();
+            CarController.BackFireAction += PlayBackfire;
+        }
 
-		//Engine PRM sound
-		EngineSource.pitch = (EngineRPM / MaxRPM) + PitchOffset;
+        void Update()
+        {
 
-		//Slip sound logic
-		if (CarController.CurrentMaxSlip > MinSlipSound
-		)
-		{
-			if (!SlipSource.isPlaying)
-			{
-				SlipSource.Play ();
-			}
-			var slipVolumeProcent = CarController.CurrentMaxSlip / MaxSlipForSound;
-			SlipSource.volume = slipVolumeProcent * 0.5f;
-			SlipSource.pitch = Mathf.Clamp (slipVolumeProcent, 0.75f, 1);
-		}
-		else
-		{
-			SlipSource.Stop ();
-		}
-	}
+            //Engine PRM sound
+            EngineSource.pitch = (EngineRPM / MaxRPM) + PitchOffset;
 
-	void PlayBackfire ()
-	{
-		EngineSource.PlayOneShot (EngineBackFireClip);
-	}
+            //Slip sound logic
+            if (CarController.CurrentMaxSlip > MinSlipSound
+            )
+            {
+                if (!SlipSource.isPlaying)
+                {
+                    SlipSource.Play();
+                }
+                var slipVolumeProcent = CarController.CurrentMaxSlip / MaxSlipForSound;
+                SlipSource.volume = slipVolumeProcent * 0.5f;
+                SlipSource.pitch = Mathf.Clamp(slipVolumeProcent, 0.75f, 1);
+            }
+            else
+            {
+                SlipSource.Stop();
+            }
+        }
+
+        void PlayBackfire()
+        {
+            EngineSource.PlayOneShot(EngineBackFireClip);
+        }
+    }
 }

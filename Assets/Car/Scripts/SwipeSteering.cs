@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeSteering : MonoBehaviour
+namespace Car
 {
-    CarController ControlledCar;
-    void Start()
+    public class SwipeSteering : MonoBehaviour
     {
-        ControlledCar = GetComponent<CarController>();
-    }
+        CarController ControlledCar;
+        void Start()
+        {
+            ControlledCar = GetComponent<CarController>();
+        }
 
-    void Update()
-    {
-        float x = TouchInput.centeredScreenPosition.x;
-        ControlledCar.UpdateControls(x, 1f);
+        void Update()
+        {
+            float x = TouchInput.centeredScreenPosition.x;
+            ControlledCar.UpdateControls(x, 1f);
+        }
     }
 }

@@ -3,114 +3,118 @@ using System.Collections.Generic;
 using PG_Physics.Wheel;
 using UnityEngine;
 
-/// <summary>
-/// Wheel settings and update logic.
-/// </summary>
-[System.Serializable]
-public struct Wheel
+namespace Car
 {
-    public WheelCollider WheelCollider;
-    public Transform WheelView;
-    public float SlipForGenerateParticle;
-    public Vector3 TrailOffset;
-
-    public float CurrentMaxSlip { get { return Mathf.Max(CurrentForwardSleep, CurrentSidewaysSleep); } }
-    public float CurrentForwardSleep { get; private set; }
-    public float CurrentSidewaysSleep { get; private set; }
-    public WheelHit GetHit { get { return Hit; } }
-
-    WheelHit Hit;
-    TrailRenderer Trail;
-
-    PG_WheelCollider m_PGWC;
-    public PG_WheelCollider PG_WheelCollider
-    {
-        get
-        {
-            if (m_PGWC == null)
-            {
-                m_PGWC = WheelCollider.GetComponent<PG_WheelCollider>();
-            }
-            if (m_PGWC == null)
-            {
-                m_PGWC = WheelCollider.gameObject.AddComponent<PG_WheelCollider>();
-                m_PGWC.CheckFirstEnable();
-            }
-            return m_PGWC;
-        }
-    }
-
-    public FXController fxc;
-    Vector3 HitPoint;
-
-    const int SmoothValuesCount = 3;
-
     /// <summary>
-    /// Update gameplay logic.
+    /// Wheel settings and update logic.
     /// </summary>
-    public void FixedUpdate()
+    [System.Serializable]
+    public struct Wheel
     {
+        public WheelCollider WheelCollider;
+        public Transform WheelView;
+        public float SlipForGenerateParticle;
+        public Vector3 TrailOffset;
 
-        if (WheelCollider.GetGroundHit(out Hit))
+        public float CurrentMaxSlip { get { return Mathf.Max(CurrentForwardSleep, CurrentSidewaysSleep); } }
+        public float CurrentForwardSleep { get; private set; }
+        public float CurrentSidewaysSleep { get; private set; }
+        public WheelHit GetHit { get { return Hit; } }
+
+        WheelHit Hit;
+        TrailRenderer Trail;
+
+        PG_WheelCollider m_PGWC;
+        public PG_WheelCollider PG_WheelCollider
         {
-            var prevForwar = CurrentForwardSleep;
-            var prevSide = CurrentSidewaysSleep;
-
-            CurrentForwardSleep = (prevForwar + Mathf.Abs(Hit.forwardSlip)) / 2;
-            CurrentSidewaysSleep = (prevSide + Mathf.Abs(Hit.sidewaysSlip)) / 2;
-        }
-        else
-        {
-            CurrentForwardSleep = 0;
-            CurrentSidewaysSleep = 0;
-        }
-    }
-
-    /// <summary>
-    /// Update visual logic (Transform, FX).
-    /// </summary>
-    public void UpdateVisual()
-    {
-        UpdateTransform();
-
-        if (WheelCollider.isGrounded && CurrentMaxSlip > SlipForGenerateParticle)
-        {
-            //Emit particle.
-            var particles = fxc.GetAspahaltParticles;
-            var point = WheelCollider.transform.position;
-            point.y = Hit.point.y;
-            particles.transform.position = point;
-            particles.Emit(1);
-
-            if (Trail == null )
+            get
             {
-                //Get free or create trail.
-                HitPoint = WheelCollider.transform.position;
-                HitPoint.y = Hit.point.y;
-                Trail = fxc.GetTrail(HitPoint);
-                Trail.transform.SetParent(WheelCollider.transform);
-                Trail.transform.localPosition += TrailOffset;
+                if (m_PGWC == null)
+                {
+                    m_PGWC = WheelCollider.GetComponent<PG_WheelCollider>();
+                }
+                if (m_PGWC == null)
+                {
+                    m_PGWC = WheelCollider.gameObject.AddComponent<PG_WheelCollider>();
+                    m_PGWC.CheckFirstEnable();
+                }
+                return m_PGWC;
             }
         }
-        else if (Trail != null)
+
+        // public FXController fxc;
+        Vector3 HitPoint;
+
+        const int SmoothValuesCount = 3;
+
+        /// <summary>
+        /// Update gameplay logic.
+        /// </summary>
+        public void FixedUpdate()
         {
-            //Set trail as free.
-            fxc.SetFreeTrail(Trail);
-            Trail = null;
+
+            if (WheelCollider.GetGroundHit(out Hit))
+            {
+                var prevForwar = CurrentForwardSleep;
+                var prevSide = CurrentSidewaysSleep;
+
+                CurrentForwardSleep = (prevForwar + Mathf.Abs(Hit.forwardSlip)) / 2;
+                CurrentSidewaysSleep = (prevSide + Mathf.Abs(Hit.sidewaysSlip)) / 2;
+            }
+            else
+            {
+                CurrentForwardSleep = 0;
+                CurrentSidewaysSleep = 0;
+            }
+        }
+
+        /// <summary>
+        /// Update visual logic (Transform, FX).
+        /// </summary>
+        public void UpdateVisual()
+        {
+            UpdateTransform();
+
+            // if (WheelCollider.isGrounded && CurrentMaxSlip > SlipForGenerateParticle)
+            // {
+            //     //Emit particle.
+            //     var particles = fxc.GetAspahaltParticles;
+            //     var point = WheelCollider.transform.position;
+            //     point.y = Hit.point.y;
+            //     particles.transform.position = point;
+            //     particles.Emit(1);
+
+            //     if (Trail == null )
+            //     {
+            //         //Get free or create trail.
+            //         HitPoint = WheelCollider.transform.position;
+            //         HitPoint.y = Hit.point.y;
+            //         Trail = fxc.GetTrail(HitPoint);
+            //         Trail.transform.SetParent(WheelCollider.transform);
+            //         Trail.transform.localPosition += TrailOffset;
+            //     }
+            // }
+            // else if (Trail != null)
+            // {
+            //     //Set trail as free.
+            //     fxc.SetFreeTrail(Trail);
+            //     Trail = null;
+            // }
+        }
+
+        public void UpdateTransform()
+        {
+            Vector3 pos;
+            Quaternion quat;
+            WheelCollider.GetWorldPose(out pos, out quat);
+            WheelView.position = pos;
+            WheelView.rotation = quat;
+        }
+
+        public void UpdateFrictionConfig(PG_WheelColliderConfig config)
+        {
+            PG_WheelCollider.UpdateConfig(config);
         }
     }
 
-    public void UpdateTransform()
-    {
-        Vector3 pos;
-        Quaternion quat;
-        WheelCollider.GetWorldPose(out pos, out quat);
-        WheelView.position = pos;
-        WheelView.rotation = quat;
-    }
-
-    public void UpdateFrictionConfig(PG_WheelColliderConfig config)
-    {
-        PG_WheelCollider.UpdateConfig(config);
-    }
 }
