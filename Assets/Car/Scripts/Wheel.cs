@@ -12,6 +12,7 @@ namespace Car
     public struct Wheel
     {
         public WheelCollider WheelCollider;
+        public WheelColliderEffects wheelColliderEffects;
         public Transform WheelView;
         public float SlipForGenerateParticle;
         public Vector3 TrailOffset;
@@ -74,32 +75,7 @@ namespace Car
         public void UpdateVisual()
         {
             UpdateTransform();
-
-            // if (WheelCollider.isGrounded && CurrentMaxSlip > SlipForGenerateParticle)
-            // {
-            //     //Emit particle.
-            //     var particles = fxc.GetAspahaltParticles;
-            //     var point = WheelCollider.transform.position;
-            //     point.y = Hit.point.y;
-            //     particles.transform.position = point;
-            //     particles.Emit(1);
-
-            //     if (Trail == null )
-            //     {
-            //         //Get free or create trail.
-            //         HitPoint = WheelCollider.transform.position;
-            //         HitPoint.y = Hit.point.y;
-            //         Trail = fxc.GetTrail(HitPoint);
-            //         Trail.transform.SetParent(WheelCollider.transform);
-            //         Trail.transform.localPosition += TrailOffset;
-            //     }
-            // }
-            // else if (Trail != null)
-            // {
-            //     //Set trail as free.
-            //     fxc.SetFreeTrail(Trail);
-            //     Trail = null;
-            // }
+            if (wheelColliderEffects) wheelColliderEffects.SetEmiting(WheelCollider.isGrounded && CurrentMaxSlip > SlipForGenerateParticle);
         }
 
         public void UpdateTransform()
