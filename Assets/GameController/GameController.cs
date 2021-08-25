@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         if (!next) currentOffTrackTime = Mathf.Max(currentOffTrackTime - Time.deltaTime, 0);
 
         if (currentOffTrackTime <= 0) OnTimeout();
-        timeLeftText.text = currentOffTrackTime.ToString();
+        timeLeftText.text = currentOffTrackTime.ToString("F2");
     }
 
     void OffTrack() {

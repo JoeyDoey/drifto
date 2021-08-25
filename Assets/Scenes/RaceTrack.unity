@@ -18411,7 +18411,7 @@ MonoBehaviour:
   carCheck: {fileID: 1771632096}
   timeLeftText: {fileID: 60123726}
   getBackOnRoadText: {fileID: 63698061}
-  maxOffTrackTime: 1
+  maxOffTrackTime: 2
   currentOffTrackTime: 0
 --- !u!4 &1288092870
 Transform:
