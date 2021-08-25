@@ -19,7 +19,7 @@ namespace Car
         }
 
         float GetSteering() {
-            return Mathf.Minj(Mathf.Max(-1, TouchInput.centeredScreenPosition.x * (1 / screenUse)), 1);
+            return Mathf.Min(Mathf.Max(-1, TouchInput.centeredScreenPosition.x * (1 / screenUse)), 1);
         }
     }
 }
