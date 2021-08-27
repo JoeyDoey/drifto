@@ -97,6 +97,7 @@ namespace Car
 
         private void Awake()
         {
+            rigidbody = RB;
             RB.centerOfMass = COM.localPosition;
 
             //Copy wheels in public property
