@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Kinda janky 
+/// </summary>
 public class PresetTrack : Track
 {
     public int maxNodeGap = 3;
     public Transform nodeParent;
+    bool lastForwardState = true;
 
+    /// <summary>
+    /// Only works for one rigidbody at a time
+    /// </summary>
     public override bool IsMovingForward(Rigidbody thing) {
         int currentIndex = ClosestNode(thing.transform.position);
         int nextIndex = ClosestNode(thing.transform.position + thing.velocity.normalized);
         int change = nextIndex - currentIndex;
-        return (0 <= change && change <= maxNodeGap) || (-nodeParent.childCount - maxNodeGap < change && change < -nodeParent.childCount + maxNodeGap);
+        if (change != 0) lastForwardState = (0 <= change && change <= maxNodeGap) || (-nodeParent.childCount - maxNodeGap < change && change < -nodeParent.childCount + maxNodeGap);;
+        return lastForwardState;
     }
 
     float GetDistanceToNode(int index)

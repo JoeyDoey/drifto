@@ -42,8 +42,8 @@ public class GameController : MonoBehaviour
         if (backwardsState.IsJustOff()) OnCarForwards();
         if (backwardsState.IsJustOn()) OnCarBackwards();
 
-        if (backwardsState.Current()) ResetScene();
-
+        if (backwardsState.Current()) currentBackwardTime = Mathf.Max(currentBackwardTime - Time.deltaTime, 0);
+        if (currentBackwardTime <= 0) ResetScene();
     }
 
     void HandleOnTrackCheck()
@@ -60,10 +60,12 @@ public class GameController : MonoBehaviour
 
     void OnCarBackwards()
     {
+        currentBackwardTime = maxBackwardTime;
     }
 
     void OnCarForwards()
     {
+        currentBackwardTime = maxBackwardTime;
     }
 
 
