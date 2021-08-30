@@ -7,14 +7,18 @@ namespace InputController
     [RequireComponent(typeof(TouchInput))]
     public class PlayerInputController : AInputController
     {
+        public bool playerInControl = true;
+
         TouchInput touchInput;
         void Start()
         {
             touchInput = GetComponent<TouchInput>();
         }
+
         public override InputState GetInput()
         {
-            return new InputState(touchInput.centeredScreenPosition.x);
+            if (playerInControl) return new InputState(touchInput.centeredScreenPosition.x);
+            else return new InputState(0);
         }
     }
 }
