@@ -1,128 +1,97 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
+namespace GameController
 {
-    [Header("Off Track Things")]
-    public RoadCheck carCheck;
-    public Text timeLeftText;
-    public Text getBackOnRoadText;
-    public float maxOffTrackTime = 2;
-    public float currentOffTrackTime;
-    ObserveChange onTrackState;
-    [Header("Backwards Things")]
-    public float maxBackwardTime = 2;
-    public float currentBackwardTime;
-    public Track track;
-    ObserveChange backwardsState;
-    [Header("Other")]
-    public GameOverUI gameOverUI;
-
-    public Car.Car car;
-
-    void Start()
+    public class GameController : MonoBehaviour
     {
-        onTrackState = new ObserveChange();
-        backwardsState = new ObserveChange();
-        currentOffTrackTime = maxOffTrackTime;
-        currentBackwardTime = maxBackwardTime;
+        [Header("Off Track Things")]
+        public bool offTrackCheck = true;
+        public RoadCheck carCheck;
+        public TimerHelper offTrackTimer;
+        [Header("Backwards Things")]
+        public Track track;
+        public TimerHelper backwardsTimer;
+        [Header("Other")]
+        public bool backwardsCheck = true;
+        public GameOverUI gameOverUI;
+
+        public Car.Car car;
+
+        void FixedUpdate()
+        {
+            if (offTrackCheck)
+            {
+                offTrackTimer.UpdateState(!carCheck.IsOnRoad());
+                offTrackTimer.UpdateTimer(Time.deltaTime);
+            }
+            if (backwardsCheck)
+            {
+                backwardsTimer.UpdateState(!track.IsMovingForward(car.rigidbody));
+                backwardsTimer.UpdateTimer(Time.deltaTime);
+            }
+        }
+
+        public void GameOver()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
-    void FixedUpdate()
+    [System.Serializable]
+    public class TimerHelper
     {
-        HandleOnTrackCheck();
-        HandleBackwardsCheck();
-    }
+        public float maxTime = 1f;
+        public Text text;
+        public UnityEvent onStart;
+        public UnityEvent onStop;
+        public UnityEvent onTimeout;
 
-    void HandleBackwardsCheck()
-    {
+        // Timer
+        bool running = false;
+        float currentTime = 0f;
 
-        backwardsState.Update(!track.IsMovingForward(car.rigidbody));
+        TimerHelper()
+        {
+            currentTime = maxTime;
+        }
 
-        if (backwardsState.IsJustOff()) OnCarForwards();
-        if (backwardsState.IsJustOn()) OnCarBackwards();
+        public void UpdateState(bool newState)
+        {
+            if (newState && !running) Start();
+            if (!newState && running) Stop();
+            running = newState;
+        }
 
-        if (backwardsState.Current()) currentBackwardTime = Mathf.Max(currentBackwardTime - Time.deltaTime, 0);
-        if (currentBackwardTime <= 0) GameOver();
-    }
+        public void UpdateTimer(float dt)
+        {
+            if (running)
+            {
+                currentTime = Mathf.Max(0, currentTime - dt);
+                if (currentTime == 0)
+                {
+                    onTimeout.Invoke();
+                }
+            }
+            text.text = currentTime.ToString("F2");
+        }
 
-    void HandleOnTrackCheck()
-    {
-        onTrackState.Update(carCheck.IsOnRoad());
+        public void Start()
+        {
+            running = true;
+            currentTime = maxTime;
+            onStart.Invoke();
+        }
 
-        if (onTrackState.IsJustOff()) OnCarOffTrack();
-        if (onTrackState.IsJustOn()) OnCarOnTrack();
-
-        if (!onTrackState.Current()) currentOffTrackTime = Mathf.Max(currentOffTrackTime - Time.deltaTime, 0);
-        if (currentOffTrackTime <= 0) GameOver();
-        timeLeftText.text = currentOffTrackTime.ToString("F2");
-    }
-
-    void OnCarBackwards()
-    {
-        currentBackwardTime = maxBackwardTime;
-    }
-
-    void OnCarForwards()
-    {
-        currentBackwardTime = maxBackwardTime;
-    }
-
-
-    void OnCarOffTrack()
-    {
-        currentOffTrackTime = maxOffTrackTime;
-        timeLeftText.gameObject.SetActive(true);
-        getBackOnRoadText.gameObject.SetActive(true);
-    }
-
-    void OnCarOnTrack()
-    {
-        timeLeftText.gameObject.SetActive(false);
-        getBackOnRoadText.gameObject.SetActive(false);
-        currentOffTrackTime = maxOffTrackTime;
-    }
-
-    void GameOver()
-    {
-        // gameOverUI.Enable();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-}
-
-class ObserveChange
-{
-
-    bool lastState;
-    bool currentState;
-
-    public ObserveChange(bool initialState = false)
-    {
-        this.currentState = initialState;
-        this.lastState = initialState;
-    }
-
-    public void Update(bool newState)
-    {
-        lastState = currentState;
-        currentState = newState;
-    }
-
-    public bool Current()
-    {
-        return currentState;
-    }
-
-    public bool IsJustOff()
-    {
-        return !currentState && lastState;
-    }
-
-    public bool IsJustOn()
-    {
-        return currentState && !lastState;
+        public void Stop()
+        {
+            running = false;
+            currentTime = maxTime;
+            onStop.Invoke();
+        }
     }
 }
