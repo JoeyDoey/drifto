@@ -34220,6 +34220,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
         type: 3}
+      propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
+        type: 3}
+      propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
+        type: 3}
       propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 987410669}
@@ -34237,7 +34247,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1916253264}
+      objectReference: {fileID: 0}
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
         type: 3}
       propertyPath: offTrackTimer.onTimeout.m_PersistentCalls.m_Calls.Array.size
@@ -34266,6 +34276,16 @@ PrefabInstance:
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
         type: 3}
       propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
+        type: 3}
+      propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
+        type: 3}
+      propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,

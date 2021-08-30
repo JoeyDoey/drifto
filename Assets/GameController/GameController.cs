@@ -44,6 +44,7 @@ namespace GameController
 
         public void EndGame()
         {
+            DisableGameOverChecks();
             onGameOver.Invoke();
         }
 
@@ -56,6 +57,9 @@ namespace GameController
         {
             backwardsCheck = false;
             offTrackCheck = false;
+            collisionCheck = false;
+            offTrackTimer.UpdateState(false);
+            backwardsTimer.UpdateState(false);
         }
 
         public void ResetScene()
