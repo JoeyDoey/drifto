@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3844382624423437386}
   - component: {fileID: 3844382624423437387}
+  - component: {fileID: 1536293798}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -43,3 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02dee986f63d1944f9dbf4030783c8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInControl: 1
+--- !u!114 &1536293798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844382624423437388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920de9f2e6641f7468471a0ea80c20f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelPosition: {x: 0, y: 0}
+  screenPosition: {x: 0, y: 0}
+  centeredScreenPosition: {x: 0, y: 0}
+  touched: 0
+  inputMode: 0
