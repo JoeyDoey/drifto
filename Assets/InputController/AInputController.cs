@@ -11,13 +11,13 @@ namespace InputController
 
     public struct InputState
     {
-
-        public InputState(float steering)
+        public InputState(float steering, float acceleration)
         {
             this.steering = steering;
+            this.acceleration = acceleration;
         }
 
-        // Value between -1 (left) and 1 (right)
-        public float steering { get; }
+        public float steering;
+        public float acceleration;
     }
 }

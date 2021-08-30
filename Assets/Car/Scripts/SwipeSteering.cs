@@ -15,11 +15,8 @@ namespace Car
 
         void Update()
         {
-            ControlledCar.UpdateControls(GetSteering(), 1f);
-        }
-
-        float GetSteering() {
-            return inputController.GetInput().steering;
+            InputController.InputState input = inputController.GetInput();
+            ControlledCar.UpdateControls(input.steering, input.acceleration);
         }
     }
 }

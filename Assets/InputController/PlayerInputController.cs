@@ -9,6 +9,8 @@ namespace InputController
     {
         public bool playerInControl = true;
         TouchInput touchInput;
+        public bool accelerating = true;
+
         void Start()
         {
             touchInput = GetComponent<TouchInput>();
@@ -19,10 +21,15 @@ namespace InputController
             this.playerInControl = playerInControl;
         }
 
+        public void SetAccelerating(bool accelerating)
+        {
+            this.accelerating = accelerating;
+        }
+
         public override InputState GetInput()
         {
-            if (playerInControl) return new InputState(touchInput.centeredScreenPosition.x);
-            else return new InputState(0);
+            if (playerInControl) return new InputState(touchInput.centeredScreenPosition.x, accelerating ? 1 : 0);
+            else return new InputState(0, 0);
         }
     }
 }
