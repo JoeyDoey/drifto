@@ -602,6 +602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SunLineGTE_Drift
       objectReference: {fileID: 0}
+    - target: {fileID: 1604582798233380, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_RootOrder
       value: 4

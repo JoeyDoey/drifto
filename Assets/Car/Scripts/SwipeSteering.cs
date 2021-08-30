@@ -16,7 +16,7 @@ namespace Car
         void Update()
         {
             InputController.InputState input = inputController.GetInput();
-            ControlledCar.UpdateControls(input.steering, input.acceleration);
+            ControlledCar.UpdateControls(input.steering, input.acceleration, input.handBrake);
         }
     }
 }

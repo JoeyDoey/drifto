@@ -10,6 +10,7 @@ namespace InputController
         public bool playerInControl = true;
         TouchInput touchInput;
         public bool accelerating = true;
+        public bool handBrake = false;
 
         void Start()
         {
@@ -26,10 +27,21 @@ namespace InputController
             this.accelerating = accelerating;
         }
 
+        public void SetHandBrake(bool on)
+        {
+            this.handBrake = on;
+        }
+
         public override InputState GetInput()
         {
-            if (playerInControl) return new InputState(touchInput.centeredScreenPosition.x, accelerating ? 1 : 0);
-            else return new InputState(0, 0);
+            InputState state = new InputState();
+            state.acceleration = accelerating ? 1 : 0;
+            state.handBrake = handBrake;
+            if (playerInControl)
+            {
+                state.steering = touchInput.centeredScreenPosition.x;
+            }
+            return state;
         }
     }
 }

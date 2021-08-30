@@ -9,15 +9,16 @@ namespace InputController
         public abstract InputState GetInput();
     }
 
-    public struct InputState
+    public class InputState
     {
-        public InputState(float steering, float acceleration)
-        {
-            this.steering = steering;
-            this.acceleration = acceleration;
-        }
-
+        public bool handBrake;
         public float steering;
         public float acceleration;
+        public InputState()
+        {
+            acceleration = 0;
+            steering = 0;
+            handBrake = false;
+        }
     }
 }

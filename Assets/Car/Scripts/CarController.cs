@@ -149,10 +149,11 @@ namespace Car
         /// </summary>
         /// <param name="horizontal">How much to turn (-1 to 1)</param>
         /// <param name="vertical">Acceleration (0 to 1)</param>
-        public void UpdateControls(float horizontal, float vertical)
+        public void UpdateControls(float horizontal, float vertical, bool handBrake)
         {
             CurrentSteerSpeed = horizontal;
             CurrentAcceleration = vertical;
+            InHandBrake = handBrake;
         }
 
         public override float GetDriftAngle()
