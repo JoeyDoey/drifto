@@ -18,7 +18,7 @@ public class GameOverUI : MonoBehaviour
         
     }
 
-    public void Enable() {
+    public void Play() {
         UIContainer.gameObject.SetActive(true);
     }
 }

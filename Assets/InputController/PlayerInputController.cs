@@ -8,11 +8,15 @@ namespace InputController
     public class PlayerInputController : AInputController
     {
         public bool playerInControl = true;
-
         TouchInput touchInput;
         void Start()
         {
             touchInput = GetComponent<TouchInput>();
+        }
+
+        public void SetPlayerControl(bool playerInControl)
+        {
+            this.playerInControl = playerInControl;
         }
 
         public override InputState GetInput()
