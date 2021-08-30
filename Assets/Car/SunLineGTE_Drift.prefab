@@ -9875,7 +9875,7 @@ GameObject:
   - component: {fileID: 114507026974695980}
   - component: {fileID: 3216495876016933185}
   - component: {fileID: 3216495876016933184}
-  - component: {fileID: 3491215531690435019}
+  - component: {fileID: 968351882}
   m_Layer: 8
   m_Name: SunLineGTE_Drift
   m_TagString: Car
@@ -9944,6 +9944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d204033c4a67b4f868a9a1a2715013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody: {fileID: 0}
   FrontLeftWheel:
     WheelCollider: {fileID: 146816972422453170}
     wheelColliderEffects: {fileID: 1967872604}
@@ -10094,7 +10095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06c231149675ac46a840292b16c3e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenUse: 0.8
+  inputController: {fileID: 0}
 --- !u!114 &3216495876016933184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10109,7 +10110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 54073378191953874}
   gravity: 20
---- !u!114 &3491215531690435019
+--- !u!114 &968351882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10118,9 +10119,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1348947134348214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc9d7e2b997842a4788a3c016d61af13, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d2e6c127a410fb4e83dd4b5dda3e8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collidableLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  maxImpulse: 4
 --- !u!1 &1374432113194866
 GameObject:
   m_ObjectHideFlags: 0

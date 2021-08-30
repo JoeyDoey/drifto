@@ -6,7 +6,7 @@ namespace Car
 {
     public class SwipeSteering : MonoBehaviour
     {
-        public float screenUse = 0.8f;
+        public InputController.AInputController inputController;
         CarController ControlledCar;
         void Start()
         {
@@ -19,7 +19,7 @@ namespace Car
         }
 
         float GetSteering() {
-            return Mathf.Min(Mathf.Max(-1, TouchInput.centeredScreenPosition.x * (1 / screenUse)), 1);
+            return inputController.GetInput().steering;
         }
     }
 }
