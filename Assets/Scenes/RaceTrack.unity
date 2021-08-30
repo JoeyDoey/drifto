@@ -574,6 +574,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1916253264}
+    - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
+      propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1348947134348214, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_Name
       value: SunLineGTE_Drift

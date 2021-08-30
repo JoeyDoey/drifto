@@ -17,14 +17,15 @@ namespace GameController
         public Track track;
         public TimerHelper backwardsTimer;
         [Header("Other")]
+        public bool collisionCheck = true;
         public UnityEvent onGameOver;
         public GameOverUI gameOverUI;
         public Car.Car car;
 
         void Start()
         {
-            offTrackTimer.onTimeout.AddListener(onGameOver.Invoke);
-            backwardsTimer.onTimeout.AddListener(onGameOver.Invoke);
+            offTrackTimer.onTimeout.AddListener(EndGame);
+            backwardsTimer.onTimeout.AddListener(EndGame);
         }
 
         void FixedUpdate()
@@ -41,7 +42,17 @@ namespace GameController
             }
         }
 
-        public void OnGameOver()
+        public void EndGame()
+        {
+            onGameOver.Invoke();
+        }
+
+        public void OnCollision()
+        {
+            if (collisionCheck) EndGame();
+        }
+
+        public void DisableGameOverChecks()
         {
             backwardsCheck = false;
             offTrackCheck = false;

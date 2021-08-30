@@ -10125,7 +10125,10 @@ MonoBehaviour:
   collidableLayer:
     serializedVersion: 2
     m_Bits: 512
-  maxImpulse: 4
+  minImpulse: 4
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1374432113194866
 GameObject:
   m_ObjectHideFlags: 0
