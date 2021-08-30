@@ -14,10 +14,13 @@ public class GameController : MonoBehaviour
     public float currentOffTrackTime;
     ObserveChange onTrackState;
     [Header("Backwards Things")]
-    ObserveChange backwardsState;
     public float maxBackwardTime = 2;
     public float currentBackwardTime;
     public Track track;
+    ObserveChange backwardsState;
+    [Header("Other")]
+    public GameOverUI gameOverUI;
+
     public Car.Car car;
 
     void Start()
@@ -43,7 +46,7 @@ public class GameController : MonoBehaviour
         if (backwardsState.IsJustOn()) OnCarBackwards();
 
         if (backwardsState.Current()) currentBackwardTime = Mathf.Max(currentBackwardTime - Time.deltaTime, 0);
-        if (currentBackwardTime <= 0) ResetScene();
+        if (currentBackwardTime <= 0) GameOver();
     }
 
     void HandleOnTrackCheck()
@@ -54,7 +57,7 @@ public class GameController : MonoBehaviour
         if (onTrackState.IsJustOn()) OnCarOnTrack();
 
         if (!onTrackState.Current()) currentOffTrackTime = Mathf.Max(currentOffTrackTime - Time.deltaTime, 0);
-        if (currentOffTrackTime <= 0) ResetScene();
+        if (currentOffTrackTime <= 0) GameOver();
         timeLeftText.text = currentOffTrackTime.ToString("F2");
     }
 
@@ -83,8 +86,9 @@ public class GameController : MonoBehaviour
         currentOffTrackTime = maxOffTrackTime;
     }
 
-    void ResetScene()
+    void GameOver()
     {
+        // gameOverUI.Enable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
