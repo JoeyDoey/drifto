@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameOverUI : MonoBehaviour
 {
     public Transform UIContainer;
+    public UISlideIn container;
 
     // Start is called before the first frame update
     void Start()
     {
-        UIContainer.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,6 +19,6 @@ public class GameOverUI : MonoBehaviour
     }
 
     public void Play() {
-        UIContainer.gameObject.SetActive(true);
+        container.Play();
     }
 }
