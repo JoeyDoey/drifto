@@ -16,8 +16,10 @@ namespace GameController
         public bool backwardsCheck = true;
         public Track track;
         public TimerHelper backwardsTimer;
-        [Header("Other")]
+        [Header("Collision Things")]
+        public UnityEvent onCollision;
         public bool collisionCheck = true;
+        [Header("Other")]
         public UnityEvent onGameOver;
         public GameOverUI gameOverUI;
         public Car.Car car;

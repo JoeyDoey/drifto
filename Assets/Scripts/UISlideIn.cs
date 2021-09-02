@@ -10,13 +10,14 @@ public class UISlideIn : MonoBehaviour
     Vector2 startAnchoredPosition;
     bool playing;
     public float speed = 1;
+    public float distanceMultiplier = 1.5f;
 
     void Awake()
     {
         playing = false;
         rectTransform = GetComponent<RectTransform>();
         startAnchoredPosition = rectTransform.anchoredPosition;
-        rectTransform.anchoredPosition = new Vector2(-rectTransform.rect.width, rectTransform.anchoredPosition.y);
+        rectTransform.anchoredPosition = new Vector2(-rectTransform.rect.width * distanceMultiplier, rectTransform.anchoredPosition.y);
     }
 
     public void Play()
