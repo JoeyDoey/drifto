@@ -40,7 +40,7 @@ namespace GameController
                     onTimeout.Invoke();
                 }
             }
-            text.text = currentTime.ToString("F2");
+            if (text) text.text = currentTime.ToString("F2");
         }
 
         public void Start()
