@@ -34101,6 +34101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
         type: 3}
+      propertyPath: offTrackTimer.maxTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
+        type: 3}
       propertyPath: backwardsTimer.maxTime
       value: 1
       objectReference: {fileID: 0}
@@ -34322,7 +34327,7 @@ PrefabInstance:
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
         type: 3}
       propertyPath: offTrackTimer.onTimeout.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Off track for too long
+      value: Stay on the track
       objectReference: {fileID: 0}
     - target: {fileID: 8938269239509304079, guid: a588d6d85b022a04b94b82486c2d713e,
         type: 3}
