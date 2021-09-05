@@ -27344,9 +27344,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 968351880}
-  masterMultiplyer: 1
+  masterMultiplier: 0.01
   minDriftAngle: 15
   minSpeed: 10
+  multiplierKeepTime: 0.5
+  currentMultiplierKeepTime: 0
+  timeMultiplerScale: 100000
 --- !u!1001 &1733283992
 PrefabInstance:
   m_ObjectHideFlags: 0

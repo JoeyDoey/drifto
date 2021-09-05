@@ -6,10 +6,13 @@ using UnityEngine.Events;
 public class ScoreHandler : MonoBehaviour
 {
     public Car.Car car;
-    public float masterMultiplyer = 1f;
-    float score = 0;
+    public float masterMultiplier = 1f;
     public float minDriftAngle = 5f;
     public float minSpeed = 5f;
+    public float multiplerDecaySpeed = 1f;
+    public float timeMultiplerScale = 1f;
+    float currentDriftTime = 0;
+    float score = 0;
 
     void Start()
     {
@@ -18,12 +21,25 @@ public class ScoreHandler : MonoBehaviour
 
     void Update()
     {
-        score += GetInstantScore(car) * Time.deltaTime * masterMultiplyer;
+        score += GetInstantScore(car) * Time.deltaTime * masterMultiplier;
     }
 
     public float GetScore()
     {
         return score;
+    }
+
+    float UpdateTimeMultiplier(bool isDrifting)
+    {
+        if (!isDrifting)
+        {
+            currentDriftTime = 0;
+        }
+        else
+        {
+            currentDriftTime += Time.deltaTime;
+        }
+        return currentDriftTime;
     }
 
     float GetInstantScore(Car.Car car)
@@ -34,6 +50,7 @@ public class ScoreHandler : MonoBehaviour
         if (angle < minDriftAngle) angle = 0;
         if (speed < minSpeed) speed = 0;
 
-        return angle * speed;
+        float rawScore = angle * speed;
+        return rawScore * UpdateTimeMultiplier(rawScore != 0);
     }
 }
