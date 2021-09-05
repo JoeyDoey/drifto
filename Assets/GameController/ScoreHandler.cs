@@ -9,14 +9,18 @@ public class ScoreHandler : MonoBehaviour
     public float masterMultiplier = 1f;
     public float minDriftAngle = 5f;
     public float minSpeed = 5f;
+    float score = 0;
+    [Header("Drift Time Multiplier")]
     public float multiplerDecaySpeed = 1f;
     public float timeMultiplerScale = 1f;
+    float timeSinceDrift;
     float currentMultiplier = 0;
-    float score = 0;
+    float lastUndecayedMultiplier;
 
     void Start()
     {
         score = 0;
+        timeSinceDrift = 0;
     }
 
     void Update()
@@ -39,11 +43,16 @@ public class ScoreHandler : MonoBehaviour
     {
         if (!isDrifting)
         {
-            currentMultiplier = 0;
+            timeSinceDrift += Time.deltaTime;
+
+            // Decay the multiplier
+            currentMultiplier = Mathf.Max(0, lastUndecayedMultiplier - timeSinceDrift * timeSinceDrift * multiplerDecaySpeed)   ;
         }
         else
         {
             currentMultiplier += Time.deltaTime * timeMultiplerScale;
+            lastUndecayedMultiplier = currentMultiplier;
+            timeSinceDrift = 0;
         }
     }
 

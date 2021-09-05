@@ -27347,7 +27347,7 @@ MonoBehaviour:
   masterMultiplier: 0.01
   minDriftAngle: 15
   minSpeed: 10
-  multiplerDecaySpeed: 1
+  multiplerDecaySpeed: 100
   timeMultiplerScale: 10
 --- !u!1001 &1733283992
 PrefabInstance:
