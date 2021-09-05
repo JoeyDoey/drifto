@@ -11,7 +11,7 @@ public class ScoreHandler : MonoBehaviour
     public float minSpeed = 5f;
     public float multiplerDecaySpeed = 1f;
     public float timeMultiplerScale = 1f;
-    float currentDriftTime = 0;
+    float currentMultiplier = 0;
     float score = 0;
 
     void Start()
@@ -21,7 +21,8 @@ public class ScoreHandler : MonoBehaviour
 
     void Update()
     {
-        score += GetInstantScore(car) * Time.deltaTime * masterMultiplier;
+        UpdateMultiplier(IsDrifting());
+        score += GetInstantScore() * Time.deltaTime * masterMultiplier;
     }
 
     public float GetScore()
@@ -29,20 +30,29 @@ public class ScoreHandler : MonoBehaviour
         return score;
     }
 
-    float UpdateTimeMultiplier(bool isDrifting)
+    bool IsDrifting()
+    {
+        return Mathf.Abs(car.GetDriftAngle()) >= minDriftAngle && Mathf.Abs(car.GetVelocity().magnitude) >= minSpeed;
+    }
+
+    void UpdateMultiplier(bool isDrifting)
     {
         if (!isDrifting)
         {
-            currentDriftTime = 0;
+            currentMultiplier = 0;
         }
         else
         {
-            currentDriftTime += Time.deltaTime;
+            currentMultiplier += Time.deltaTime * timeMultiplerScale;
         }
-        return currentDriftTime;
     }
 
-    float GetInstantScore(Car.Car car)
+    float GetMultiplier()
+    {
+        return currentMultiplier;
+    }
+
+    float GetInstantScore()
     {
         float angle = Mathf.Abs(car.GetDriftAngle());
         float speed = Mathf.Abs(car.GetVelocity().magnitude);
@@ -51,6 +61,6 @@ public class ScoreHandler : MonoBehaviour
         if (speed < minSpeed) speed = 0;
 
         float rawScore = angle * speed;
-        return rawScore * UpdateTimeMultiplier(rawScore != 0);
+        return rawScore * GetMultiplier();
     }
 }

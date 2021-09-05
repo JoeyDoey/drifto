@@ -27347,9 +27347,8 @@ MonoBehaviour:
   masterMultiplier: 0.01
   minDriftAngle: 15
   minSpeed: 10
-  multiplierKeepTime: 0.5
-  currentMultiplierKeepTime: 0
-  timeMultiplerScale: 100000
+  multiplerDecaySpeed: 1
+  timeMultiplerScale: 10
 --- !u!1001 &1733283992
 PrefabInstance:
   m_ObjectHideFlags: 0
