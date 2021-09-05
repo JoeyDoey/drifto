@@ -6,16 +6,13 @@ public class GameOverUI : MonoBehaviour
 {
     public Transform UIContainer;
     public UISlideIn container;
+    public bool enableContainerOnAwake = true;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (enableContainerOnAwake) {
+            container.gameObject.SetActive(true);
+        }
     }
 
     public void Play() {
