@@ -46,7 +46,7 @@ public class ScoreHandler : MonoBehaviour
             timeSinceDrift += Time.deltaTime;
 
             // Decay the multiplier
-            currentMultiplier = Mathf.Max(0, lastUndecayedMultiplier - timeSinceDrift * timeSinceDrift * multiplerDecaySpeed)   ;
+            currentMultiplier = Mathf.Max(0, lastUndecayedMultiplier - timeSinceDrift * timeSinceDrift * multiplerDecaySpeed);
         }
         else
         {
@@ -56,7 +56,7 @@ public class ScoreHandler : MonoBehaviour
         }
     }
 
-    float GetMultiplier()
+    public float GetMultiplier()
     {
         return currentMultiplier;
     }
