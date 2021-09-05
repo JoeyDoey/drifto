@@ -8,6 +8,7 @@ namespace GameController
     [System.Serializable]
     public class TimerHelper
     {
+        [SerializeField] float currentTime = 0f;
         public float maxTime = 1f;
         public Text text;
         public UnityEvent onStart;
@@ -16,7 +17,6 @@ namespace GameController
 
         // Timer
         bool running = false;
-        float currentTime = 0f;
 
         TimerHelper()
         {
