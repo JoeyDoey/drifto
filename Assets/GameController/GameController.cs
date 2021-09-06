@@ -24,15 +24,13 @@ namespace GameController
         [Header("Other")]
         public Car.Car car;
 
-        void Awake()
-        {
-            gameState = GetComponent<GameStateController>();
-        }
-
         void Start()
         {
             offTrackTimer.onTimeout.AddListener(OnTimeout);
             backwardsTimer.onTimeout.AddListener(OnTimeout);
+            
+            gameState = GetComponent<GameStateController>();
+            gameState.SetState(GameState.game);
         }
 
         void OnTimeout() {

@@ -13,10 +13,10 @@ namespace GameController
             GetStateInfo(currentState).onStart.Invoke();
         }
 
-        // ========================================================================================
         [Header("Game State")]
         [SerializeField] GameState currentState;
         // TODO automate this - custom inspector?
+        [SerializeField] GameStateInfo pregameStateInfo;
         [SerializeField] GameStateInfo gameStateInfo;
         [SerializeField] GameStateInfo postgameStateInfo;
 
@@ -30,6 +30,8 @@ namespace GameController
                     GetStateInfo(newState).onStart.Invoke();
                 }
                 currentState = newState;
+            } else {
+                Debug.LogError("Cannot change game state from " + currentState + " to " + newState);
             }
         }
 
@@ -42,6 +44,9 @@ namespace GameController
         {
             switch (state)
             {
+                case GameState.pregame:
+                    return pregameStateInfo;
+                    break;
                 case GameState.game:
                     return gameStateInfo;
                     break;
@@ -56,9 +61,9 @@ namespace GameController
 
     public enum GameState
     {
+        pregame,
         game,
         postgame,
-        none,
     }
 
     [System.Serializable]
