@@ -28,6 +28,7 @@ namespace Car
         }
 
         void UpdateEmmiter() {
+            Debug.Log("HOEs");
             trail.emitting = emitting;
             if (emitting) particles.Play();
             else particles.Pause();

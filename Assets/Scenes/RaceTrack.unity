@@ -27469,7 +27469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce37f2d55bbaa1448606c9973b68598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offTrackCheck: 0
+  offTrackCheck: 1
   carCheck: {fileID: 1771632096}
   offTrackTimer:
     currentTime: 1
@@ -27495,7 +27495,7 @@ MonoBehaviour:
             m_StringArgument: Stay on the track!
             m_BoolArgument: 0
           m_CallState: 2
-  backwardsCheck: 0
+  backwardsCheck: 1
   track: {fileID: 777667074}
   backwardsTimer:
     currentTime: 1
