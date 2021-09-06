@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.37018
+      value: 166.5
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -624,11 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 234.45338
+      value: 234.2
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6777024
+      value: -0.68468964
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -636,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.73533636
+      value: -0.72883475
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.z
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 94.671005
+      value: 453.578
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -11738,7 +11738,7 @@ MonoBehaviour:
   distance: 15
   height: 8
   heightDamping: 2
-  rotationDamping: 1
+  rotationDamping: 2
 --- !u!1 &678746060
 GameObject:
   m_ObjectHideFlags: 0
@@ -27469,7 +27469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce37f2d55bbaa1448606c9973b68598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offTrackCheck: 1
+  offTrackCheck: 0
   carCheck: {fileID: 1771632096}
   offTrackTimer:
     currentTime: 1
@@ -27495,7 +27495,7 @@ MonoBehaviour:
             m_StringArgument: Stay on the track!
             m_BoolArgument: 0
           m_CallState: 2
-  backwardsCheck: 1
+  backwardsCheck: 0
   track: {fileID: 777667074}
   backwardsTimer:
     currentTime: 1
