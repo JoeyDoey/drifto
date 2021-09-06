@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.5803922, g: 0.5803922, b: 0.5803922, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientIntensity: 1
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.155
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4397559, g: 0.48818153, b: 0.56839716, a: 1}
+  m_IndirectSpecularColor: {r: 0.17252505, g: 0.19479468, b: 0.2316837, a: 0.155}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -576,7 +576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: minImpulse
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.size
@@ -606,10 +606,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SunLineGTE_Drift
       objectReference: {fileID: 0}
-    - target: {fileID: 1604582798233380, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -620,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.276
+      value: 0.139
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -681,13 +677,13 @@ PrefabInstance:
       objectReference: {fileID: 1536293796}
     - target: {fileID: 3217684672426499024, guid: b7e4436a79296d8489474a482a267fb3,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3217684672426499024, guid: b7e4436a79296d8489474a482a267fb3,
-        type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6541383479147256212, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: outlineMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
@@ -11735,13 +11731,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664622654}
-  m_LocalRotation: {x: 0.1212818, y: 0.7156868, z: -0.12845749, w: 0.6757085}
-  m_LocalPosition: {x: 117.70001, y: 6.7, z: 232.20001}
+  m_LocalRotation: {x: -0, y: -0.72883475, z: -0, w: -0.68468964}
+  m_LocalPosition: {x: 143.49, y: 0.78, z: 235.23204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20.351002, y: 93.29201, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &664622658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11756,7 +11752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1272498940}
   distance: 15
-  height: 8
+  height: 6
   heightDamping: 2
   rotationDamping: 2
 --- !u!1 &678746060
@@ -27473,7 +27469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 968351880}
   masterMultiplier: 0.001
-  minDriftAngle: 7
+  minDriftAngle: 10
   minSpeed: 5
   multiplerDecaySpeed: 50
   timeMultiplerScale: 10
