@@ -576,7 +576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: minImpulse
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 968351882, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.size
@@ -659,6 +659,16 @@ PrefabInstance:
       propertyPath: inputController
       value: 
       objectReference: {fileID: 1536293796}
+    - target: {fileID: 3217684672426499024, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217684672426499024, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
 --- !u!1 &25673638
@@ -4952,12 +4962,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &257801594 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 20812674}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &266447399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10455,9 +10459,9 @@ RectTransform:
   m_Father: {fileID: 1340865229}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: 590}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -116, y: -110}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600430946
@@ -11730,11 +11734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5dc069105adfd4f85d2199edd7314f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 257801594}
+  target: {fileID: 1272498940}
   distance: 15
   height: 8
   heightDamping: 2
-  rotationDamping: 3
+  rotationDamping: 1
 --- !u!1 &678746060
 GameObject:
   m_ObjectHideFlags: 0
@@ -13382,9 +13386,9 @@ RectTransform:
   m_Father: {fileID: 1340865229}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: 492}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -116, y: -208}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772679988
@@ -22146,6 +22150,12 @@ PhysicMaterial:
   bounciness: 0
   frictionCombine: 0
   bounceCombine: 0
+--- !u!4 &1272498940 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3217684672426499024, guid: b7e4436a79296d8489474a482a267fb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 20812674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1280325629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1305622109846596226, guid: ba5f931d00859cf46b4a4e1dbefb8c8a,
@@ -27463,7 +27473,7 @@ MonoBehaviour:
   carCheck: {fileID: 1771632096}
   offTrackTimer:
     currentTime: 1
-    maxTime: 0.5
+    maxTime: 0.25
     text: {fileID: 0}
     onStart:
       m_PersistentCalls:
