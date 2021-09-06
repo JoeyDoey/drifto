@@ -11,6 +11,7 @@ namespace Car
     [System.Serializable]
     public struct Wheel
     {
+        public LayerMask roadLayer;
         public WheelCollider WheelCollider;
         public WheelColliderEffects wheelColliderEffects;
         public Transform WheelView;
@@ -21,6 +22,7 @@ namespace Car
         public float CurrentForwardSleep { get; private set; }
         public float CurrentSidewaysSleep { get; private set; }
         public WheelHit GetHit { get { return Hit; } }
+        bool onRoad;
 
         WheelHit Hit;
         TrailRenderer Trail;
@@ -56,6 +58,8 @@ namespace Car
 
             if (WheelCollider.GetGroundHit(out Hit))
             {
+                onRoad = IsRoad(Hit.collider); 
+
                 var prevForwar = CurrentForwardSleep;
                 var prevSide = CurrentSidewaysSleep;
 
@@ -75,7 +79,13 @@ namespace Car
         public void UpdateVisual()
         {
             UpdateTransform();
-            if (wheelColliderEffects) wheelColliderEffects.SetEmiting(WheelCollider.isGrounded && CurrentMaxSlip > SlipForGenerateParticle);
+            bool shouldEmit = WheelCollider.isGrounded && CurrentMaxSlip > SlipForGenerateParticle;
+            if (wheelColliderEffects) wheelColliderEffects.SetEmiting(shouldEmit && onRoad, shouldEmit);
+        }
+
+        bool IsRoad(Collider other)
+        {
+            return 1 << other.gameObject.layer == roadLayer.value;
         }
 
         public void UpdateTransform()

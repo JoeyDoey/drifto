@@ -654,6 +654,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114098881066837142, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: RearLeftWheel.roadLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098881066837142, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: FrontLeftWheel.roadLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098881066837142, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: RearRightWheel.roadLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098881066837142, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: FrontRightWheel.roadLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3216495876016933185, guid: b7e4436a79296d8489474a482a267fb3,
         type: 3}
       propertyPath: inputController

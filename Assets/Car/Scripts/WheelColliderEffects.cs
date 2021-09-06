@@ -8,12 +8,14 @@ namespace Car
     [RequireComponent(typeof(ParticleSystem))]
     public class WheelColliderEffects : MonoBehaviour
     {
-        private bool emitting = false;
+        bool emitSmoke = false;
+        bool emitTrail = false;
         TrailRenderer trail;
         ParticleSystem particles;
 
-        public void SetEmiting(bool emitting) {
-            this.emitting = emitting;
+        public void SetEmiting(bool smoke, bool trail) {
+            emitSmoke = smoke;
+            emitTrail = trail;
         }
 
         void Start() {
@@ -28,9 +30,8 @@ namespace Car
         }
 
         void UpdateEmmiter() {
-            Debug.Log("HOEs");
-            trail.emitting = emitting;
-            if (emitting) particles.Play();
+            trail.emitting = emitTrail;
+            if (emitSmoke) particles.Play();
             else particles.Pause();
         }
     }
