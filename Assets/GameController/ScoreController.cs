@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ScoreHandler : MonoBehaviour
+public class ScoreController : MonoBehaviour
 {
     public Car.Car car;
     public float masterMultiplier = 1f;
@@ -16,6 +16,11 @@ public class ScoreHandler : MonoBehaviour
     float timeSinceDrift;
     float currentMultiplier = 0;
     float lastUndecayedMultiplier;
+    [Header("Clipping Points")]
+    public Transform clippingPoints;
+    public float minClippingPointScore = 2f;
+    public float maxClippingPointScore = 10f;
+    public float maxClippingPointDistance = 5f;
 
     void Start()
     {
@@ -29,6 +34,11 @@ public class ScoreHandler : MonoBehaviour
         score += GetInstantScore() * Time.deltaTime * masterMultiplier;
     }
 
+    void FixedUpdate()
+    {
+        UpdateClipping();
+    }
+
     public float GetScore()
     {
         return score;
@@ -37,6 +47,24 @@ public class ScoreHandler : MonoBehaviour
     bool IsDrifting()
     {
         return Mathf.Abs(car.GetDriftAngle()) >= minDriftAngle && Mathf.Abs(car.GetVelocity().magnitude) >= minSpeed;
+    }
+
+    void UpdateClipping()
+    {
+        foreach (Transform trans in clippingPoints)
+        {
+            ClippingPoint clip = trans.gameObject.GetComponent<ClippingPoint>();
+            if (!clip.IsDisabled() && clip.IsTouching(car.frontCheck.position))
+            {
+                float distance = clip.GetDistanceTo(car.frontCheck.position);
+                if (distance <= maxClippingPointDistance)
+                {
+                    clip.TempDisable();
+                    float pointScore = minClippingPointScore + (maxClippingPointScore - minClippingPointScore) * (1 - distance / maxClippingPointDistance);
+                    score += pointScore;
+                }
+            }
+        }
     }
 
     void UpdateMultiplier(bool isDrifting)

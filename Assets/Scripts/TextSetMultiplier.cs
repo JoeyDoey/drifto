@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TextSetMultiplier : MonoBehaviour
 {
     public Text text;
-    public ScoreHandler scoreHandler;
+    public ScoreController scoreHandler;
 
     void Update()
     {

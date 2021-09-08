@@ -6,6 +6,7 @@ namespace Car
 {
     public abstract class Car : MonoBehaviour
     {
+        public Transform frontCheck;
         [HideInInspector]
         public new Rigidbody rigidbody;
         public abstract Vector3 GetVelocity();
