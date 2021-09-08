@@ -22925,6 +22925,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5396446197466864430, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fad679bb906f8f4b8e374a6a6a42aca, type: 3}
 --- !u!4 &1268207227 stripped
@@ -28592,7 +28597,7 @@ MonoBehaviour:
   clippingPoints: {fileID: 1564318195}
   minClippingPointScore: 100
   maxClippingPointScore: 500
-  maxClippingPointDistance: 10
+  maxClippingPointDistance: 9
   onClippingPoint:
     m_PersistentCalls:
       m_Calls:
