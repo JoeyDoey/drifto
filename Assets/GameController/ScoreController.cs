@@ -21,6 +21,7 @@ public class ScoreController : MonoBehaviour
     public float minClippingPointScore = 2f;
     public float maxClippingPointScore = 10f;
     public float maxClippingPointDistance = 5f;
+    public ClippingPointEvent onClippingPoint;
 
     void Start()
     {
@@ -51,6 +52,7 @@ public class ScoreController : MonoBehaviour
 
     void UpdateClipping()
     {
+        int i = 0;
         foreach (Transform trans in clippingPoints)
         {
             ClippingPoint clip = trans.gameObject.GetComponent<ClippingPoint>();
@@ -60,10 +62,12 @@ public class ScoreController : MonoBehaviour
                 if (distance <= maxClippingPointDistance)
                 {
                     clip.TempDisable();
-                    float pointScore = minClippingPointScore + (maxClippingPointScore - minClippingPointScore) * (1 - distance / maxClippingPointDistance);
+                    int pointScore = (int) (minClippingPointScore + (maxClippingPointScore - minClippingPointScore) * (1 - distance / maxClippingPointDistance));
                     score += pointScore;
+                    onClippingPoint.Invoke(pointScore, i);
                 }
             }
+            i++;
         }
     }
 
@@ -100,4 +104,12 @@ public class ScoreController : MonoBehaviour
         float rawScore = angle * speed;
         return rawScore * GetMultiplier();
     }
+}
+
+/// <summary>
+/// (score, index)
+/// </summary>
+[System.Serializable]
+public class ClippingPointEvent : UnityEvent<int, int>
+{
 }
