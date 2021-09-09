@@ -12834,6 +12834,7 @@ MonoBehaviour:
   - {fileID: 1261749927}
   displayTime: 1.5
   pointsPerBurst: 3
+  maxFontSize: 100
   baseColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &717532599
 Mesh:
@@ -28598,6 +28599,7 @@ MonoBehaviour:
   minClippingPointScore: 100
   maxClippingPointScore: 500
   maxClippingPointDistance: 9
+  minClippingPointDistance: 1.5
   onClippingPoint:
     m_PersistentCalls:
       m_Calls:

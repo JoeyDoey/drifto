@@ -21,6 +21,7 @@ public class ScoreController : MonoBehaviour
     public float minClippingPointScore = 2f;
     public float maxClippingPointScore = 10f;
     public float maxClippingPointDistance = 5f;
+    public float minClippingPointDistance = 1f;
     public ClippingPointEvent onClippingPoint;
 
     void Start()
@@ -62,9 +63,14 @@ public class ScoreController : MonoBehaviour
                 if (distance <= maxClippingPointDistance)
                 {
                     clip.TempDisable();
-                    int pointScore = (int) (minClippingPointScore + (maxClippingPointScore - minClippingPointScore) * (1 - distance / maxClippingPointDistance));
-                    score += pointScore;
-                    onClippingPoint.Invoke(pointScore, i);
+
+                    float scoreRange = (maxClippingPointScore - minClippingPointScore);
+                    float t = 1 - Mathf.Max(distance - minClippingPointDistance, 0) / maxClippingPointDistance;
+                    float pointScore = (minClippingPointScore + scoreRange * t);
+
+                    int s = (int) pointScore;
+                    score += s;
+                    onClippingPoint.Invoke(s, i);
                 }
             }
             i++;
