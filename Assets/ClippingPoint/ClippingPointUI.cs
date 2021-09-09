@@ -9,10 +9,13 @@ public class ClippingPointUI : MonoBehaviour
     float[] timers;
     public float displayTime = 1;
     public int pointsPerBurst = 3;
+    public int maxFontSize = 100;
+    int normalFontSize;
     public Color baseColor = Color.white;
 
     void Start()
     {
+        normalFontSize = texts[0].fontSize;
         timers = new float[pointsPerBurst];
         for (int i = 0; i < pointsPerBurst; i++)
         {
@@ -25,7 +28,12 @@ public class ClippingPointUI : MonoBehaviour
         for (int i = 0; i < texts.Length; i++)
         {
             timers[i] = Mathf.Max(0, timers[i] - Time.deltaTime);
-            texts[i].color = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a * FadeFunction(timers[i] / displayTime));
+            if (timers[i] > 0) {
+                texts[i].color = new Color(baseColor.r, baseColor.g, baseColor.b, baseColor.a * FadeFunction(timers[i] / displayTime));
+                texts[i].fontSize = (int) Mathf.Max(normalFontSize, (maxFontSize * (timers[i] / displayTime)));
+            } else {
+                texts[i].color = new Color(baseColor.r, baseColor.g, baseColor.b, 0);
+            }
         }
     }
 
