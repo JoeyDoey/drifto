@@ -8,11 +8,11 @@ Currently just passing a reference through the inspector
 ## Scripts
 All under GameController namespace
 
-### [GameController.cs](Assets/GameController/GameController.cs)
+### [GameController.cs](GameController/GameController.cs)
 Controls a lot of the movement between game states.
 Handles the off track and backwards timers, and the collision game over things.
 
-### [GameStateController.cs](Assets/GameController/GameController.cs)
+### [GameStateController.cs](GameController/GameController.cs)
 Very crude state machine.
 
 ##### GameState (enum)
@@ -23,7 +23,7 @@ Very crude state machine.
 ##### GameStateInfo (class)
 Defines what events are called on a state being started and stopped. Also defines what the next legal states are.
 
-### [TimerHelper.cs](Assets/GameController/TimerHelper.cs)
+### [TimerHelper.cs](GameController/TimerHelper.cs)
 Helper classes for the game over timers.
 UpdateTimer and UpdateState must be called regularly for it to work.
 Give it updates on the state of the game over check and events can be registered for:
