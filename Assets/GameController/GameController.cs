@@ -30,6 +30,10 @@ namespace GameController
             backwardsTimer.onTimeout.AddListener(OnTimeout);
 
             gameState = GetComponent<GameStateController>();
+            
+            if (AppController.AppController.Instance.GetComponent<AppController.AppModel>().gameModel.skipMenu) {
+                StartGame(); 
+            }
         }
 
         void OnTimeout()
