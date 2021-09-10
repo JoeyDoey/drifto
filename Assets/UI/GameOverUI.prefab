@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344675706081137187}
-  - component: {fileID: 1344675706081137186}
+  - component: {fileID: 623120630}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -208,7 +208,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1344675706081137186
+--- !u!114 &623120630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,11 +217,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344675706081137184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6238b9afad98e644cb2d8c722e9e74b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 57f4db1c143da8f4ea0e51ed3ee3e2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTime: 1
   distanceMultiplier: 1.5
+  startSide: -1
+  speed: 150000
+  dampingFactor: 0.5
 --- !u!1 &1344675706288018209
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +493,6 @@ GameObject:
   - component: {fileID: 1344675706918047162}
   - component: {fileID: 1344675706918047163}
   - component: {fileID: 1344675706918047160}
-  - component: {fileID: 1344675706918047164}
   m_Layer: 5
   m_Name: GameOverUI
   m_TagString: Untagged
@@ -579,21 +580,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1344675706918047164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344675706918047161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2214a7a70e952754e8e1667f3233ab60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIContainer: {fileID: 1344675706081137187}
-  container: {fileID: 1344675706081137186}
-  enableContainerOnAwake: 1
 --- !u!1 &1344675707096590143
 GameObject:
   m_ObjectHideFlags: 0
