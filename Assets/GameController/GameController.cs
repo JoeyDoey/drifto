@@ -30,9 +30,11 @@ namespace GameController
             backwardsTimer.onTimeout.AddListener(OnTimeout);
 
             gameState = GetComponent<GameStateController>();
-            
-            if (AppController.AppController.Instance.GetComponent<AppController.AppModel>().gameModel.skipMenu) {
-                StartGame(); 
+
+            AppController.GameModel gameModel = AppController.AppController.Instance.GetComponent<AppController.AppModel>().gameModel;
+            if (gameModel.skipMenu)
+            {
+                StartGame();
             }
         }
 
@@ -76,6 +78,8 @@ namespace GameController
 
         public void ResetScene()
         {
+            AppController.GameModel gameModel = AppController.AppController.Instance.GetComponent<AppController.AppModel>().gameModel;
+            gameModel.skipMenu = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

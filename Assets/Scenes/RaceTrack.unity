@@ -34620,6 +34620,16 @@ PrefabInstance:
       propertyPath: scoreHandler
       value: 
       objectReference: {fileID: 1720044735}
+    - target: {fileID: 1344675706358801565, guid: dba1f12d0e1ef5a408b64633e79f549a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1720044736}
+    - target: {fileID: 1344675706358801565, guid: dba1f12d0e1ef5a408b64633e79f549a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1344675706918047161, guid: dba1f12d0e1ef5a408b64633e79f549a,
         type: 3}
       propertyPath: m_Name
@@ -34730,7 +34740,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1344675706358801562, guid: dba1f12d0e1ef5a408b64633e79f549a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dba1f12d0e1ef5a408b64633e79f549a, type: 3}
 --- !u!114 &3089830467544978088 stripped
 MonoBehaviour:
@@ -34751,6 +34762,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1904541144314767181, guid: 830c8a8a5b862044f83ea6c6244bcf85,
+        type: 3}
+      propertyPath: gameModel.skipMenu
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4495790403959630923, guid: 830c8a8a5b862044f83ea6c6244bcf85,
         type: 3}
       propertyPath: m_Name

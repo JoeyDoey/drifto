@@ -10,8 +10,8 @@ namespace AppController
     }
 
     [System.Serializable]
-    public struct GameModel
+    public class GameModel
     {
-        public bool skipMenu;
+        public bool skipMenu = false;
     }
 }
