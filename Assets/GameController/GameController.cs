@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 namespace GameController
 {
+    ///  <summary>
+    /// Controls a lot of the movement between game states.
+    /// Handles the off track and backwards timers, and the collision game over things.
+    /// </summary>
     [RequireComponent(typeof(GameController))]
     public class GameController : MonoBehaviour
     {
@@ -38,6 +42,11 @@ namespace GameController
             }
         }
 
+        /// <summary>
+        /// If we are in the game state, change it to the postgame.
+        /// To be registered as a listener for the onTimeout event for the game over timers
+        /// (off track and backwards).
+        /// </summary>
         void OnTimeout()
         {
             if (gameState.GetState() == GameState.game)
@@ -68,6 +77,11 @@ namespace GameController
             gameState.SetState(GameState.game);
         }
 
+        /// <summary>
+        /// How the controller knows about the car collision.
+        /// The car must have this registered on the collision event.
+        /// TODO make it so that this has to know about the car, not the other way around
+        /// </summary>
         public void OnCollision()
         {
             if (gameState.GetState() == GameState.game)
@@ -76,10 +90,14 @@ namespace GameController
             }
         }
 
-        public void ResetScene()
+        /// <summary>
+        /// Restart the game scene.
+        /// Allows skipping of the menu once restarted (default is true to skipping it).
+        /// </summary>
+        public void RestartGame(bool skipMenu = true)
         {
             AppController.GameModel gameModel = AppController.AppController.Instance.GetComponent<AppController.AppModel>().gameModel;
-            gameModel.skipMenu = true;
+            gameModel.skipMenu = skipMenu;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

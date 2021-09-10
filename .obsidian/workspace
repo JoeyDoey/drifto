@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Assets/AppController.md",
-            "mode": "preview"
+            "file": "Assets/GameController.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Assets/AppController.md",
+                "file": "Assets/GameController.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +88,10 @@
   },
   "active": "cd85e31327b0212c",
   "lastOpenFiles": [
+    "Assets/GameController.md",
     "Assets/AppController.md",
+    "Untitled.md",
+    "'../drifto/Assets/AppController/AppController.cs'.md",
     "Docs/GameState.md",
     "Docs/GameController (Object).md",
     "AppController.md"

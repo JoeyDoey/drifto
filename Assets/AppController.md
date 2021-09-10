@@ -12,6 +12,7 @@ The following are all contained in AppController namespace
 Handles the persistance of the object.
 Really just a container that inherits from Singleton.cs (Util)
 
+
 ### [AppModel.cs](Assets/AppController/AppModel.cs)
 Want to pass information between scenes? Use this.
 Is really just a container for scene models: classes containing information relevant to certain scenes. For example GameModel contains whether the menu should be skipped or not.

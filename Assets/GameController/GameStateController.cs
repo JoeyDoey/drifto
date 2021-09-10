@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace GameController
 {
+    /// <summary>
+    /// Very crude state machine.
+    /// </summary>
     public class GameStateController : MonoBehaviour
     {
         void Start()
@@ -20,6 +23,14 @@ namespace GameController
         [SerializeField] GameStateInfo gameStateInfo;
         [SerializeField] GameStateInfo postgameStateInfo;
 
+        /// <summary>
+        /// Set the state of the state machine to newState.
+        /// 
+        /// Calls the onStop and onStart for the last and next state respectively.
+        /// 
+        /// If newState is not listed as a legal next state of the current state, an error is
+        /// logged with Debug.LogError.
+        /// </summary>
         public void SetState(GameState newState)
         {
             if (Array.Exists(GetStateInfo(currentState).nextStates, element => element == newState))
@@ -42,6 +53,9 @@ namespace GameController
             return currentState;
         }
 
+        /// <summary>
+        /// Get the respective state info object for the given state (The thing defined in the inspector).
+        /// </summary>
         GameStateInfo GetStateInfo(GameState state)
         {
             switch (state)
@@ -69,6 +83,10 @@ namespace GameController
         postgame,
     }
 
+    /// <summary>
+    /// Defines what events are called on a state being started and stopped. Also defines what the
+    /// next legal states are.
+    /// </summary>
     [System.Serializable]
     public class GameStateInfo
     {
