@@ -28,12 +28,12 @@ namespace GameController
         {
             offTrackTimer.onTimeout.AddListener(OnTimeout);
             backwardsTimer.onTimeout.AddListener(OnTimeout);
-            
+
             gameState = GetComponent<GameStateController>();
-            gameState.SetState(GameState.game);
         }
 
-        void OnTimeout() {
+        void OnTimeout()
+        {
             if (gameState.GetState() == GameState.game)
             {
                 gameState.SetState(GameState.postgame);
@@ -55,6 +55,11 @@ namespace GameController
                     backwardsTimer.UpdateTimer(Time.deltaTime);
                 }
             }
+        }
+
+        public void StartGame()
+        {
+            gameState.SetState(GameState.game);
         }
 
         public void OnCollision()

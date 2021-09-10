@@ -30,7 +30,9 @@ namespace GameController
                     GetStateInfo(newState).onStart.Invoke();
                 }
                 currentState = newState;
-            } else {
+            }
+            else
+            {
                 Debug.LogError("Cannot change game state from " + currentState + " to " + newState);
             }
         }
@@ -59,6 +61,7 @@ namespace GameController
 
     }
 
+    [System.Serializable]
     public enum GameState
     {
         pregame,

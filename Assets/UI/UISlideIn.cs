@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
-public class UISlideOut : MonoBehaviour
+public class UISlideIn : MonoBehaviour
 {
     RectTransform rectTransform;
     Vector2 startAnchoredPosition;
@@ -18,8 +18,9 @@ public class UISlideOut : MonoBehaviour
     {
         playing = false;
         rectTransform = GetComponent<RectTransform>();
-        finalAnchoredPosition = new Vector2(rectTransform.rect.width * distanceMultiplier, rectTransform.anchoredPosition.y);
-        startAnchoredPosition = rectTransform.anchoredPosition;
+        startAnchoredPosition = new Vector2(-rectTransform.rect.width * distanceMultiplier, rectTransform.anchoredPosition.y);
+        finalAnchoredPosition = rectTransform.anchoredPosition;
+        rectTransform.anchoredPosition = startAnchoredPosition;
     }
 
     public void Play()
@@ -32,8 +33,8 @@ public class UISlideOut : MonoBehaviour
     {
         if (playing)
         {
-            rectTransform.anchoredPosition = GetNewPosition(currentPlayTime / playTime, startAnchoredPosition, finalAnchoredPosition);
-            currentPlayTime = Mathf.Min(1, currentPlayTime + Time.deltaTime);
+            rectTransform.anchoredPosition = GetNewPosition(1 - currentPlayTime / playTime, finalAnchoredPosition, startAnchoredPosition);
+            currentPlayTime = Mathf.Min(playTime, currentPlayTime + Time.deltaTime);
             // TODO make variable play time
         }
     }
@@ -43,7 +44,7 @@ public class UISlideOut : MonoBehaviour
     }
 
     float Interpolate(float t, float start, float end) {
-        return start + (end - start) * t * t;
+        return start + (end - start) * t * t * t * t;
     }
 
     float SlideFunction(float t) {
