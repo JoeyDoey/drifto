@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 namespace GameController
 {
-    /// <summary>
-    /// Handle score logic.
     /// Takes into consideration speed, angle, time in drift, and clipping points.
     /// </summary>
     public class ScoreController : MonoBehaviour
@@ -126,7 +124,7 @@ namespace GameController
 
     /// <summary>
     /// (score, index)
-    /// </summary>
+    /// /// </summary>
     [System.Serializable]
     public class ClippingPointEvent : UnityEvent<int, int>
     {

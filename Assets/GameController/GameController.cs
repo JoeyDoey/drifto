@@ -101,5 +101,4 @@ namespace GameController
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-
 }
