@@ -11,5 +11,6 @@ namespace Car
         public new Rigidbody rigidbody;
         public abstract Vector3 GetVelocity();
         public abstract float GetDriftAngle();
+        public abstract bool IsDrifting();
     }
 }

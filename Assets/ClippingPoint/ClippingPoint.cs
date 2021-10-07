@@ -1,40 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ClippingPoint : MonoBehaviour
+
+public class ClippingPoint : AClippingPoint
 {
+    [SerializeField] private Collider postCollider;
 
-    float timeUntilEnable;
-    public float disableTime = 1;
-    public Collider collider;
-
-    void Start()
-    {
-        timeUntilEnable = 0;
+    private void Awake() {
+        onScore = new FloatEvent();
     }
 
-    void Update()
-    {
-        if (timeUntilEnable > 0)
-        {
-            timeUntilEnable = Mathf.Max(0, timeUntilEnable - Time.deltaTime);
-        }
+    /// <summary>
+    /// Assuming the point is the the range, get the score at point
+    /// </summary>
+    public override float GetScore(Vector3 point) {
+        return GetSection(point) * scorePerSection;
     }
 
-    public bool IsDisabled()
-    {
-        return timeUntilEnable > 0;
+    private float GetSection(Vector3 point) {
+        float normalizedDistance = GetRealDistance(point) / maxDistance;
+        if (IsInFront(point) || normalizedDistance >= 1) return 0;
+        int currentSection = Mathf.FloorToInt((1 - normalizedDistance) * sections);
+        if (currentSection >= sections) return 0;
+        return currentSection + 1;
     }
 
-    public void TempDisable()
-    {
-        timeUntilEnable = disableTime;
+    /// <summary>
+    /// Assuming the point is the the range, get the score of the collider
+    /// </summary>
+    public override float GetScore(Collider collider) {
+        return GetScore(collider.ClosestPoint(transform.position));
     }
 
-    public float GetDistanceTo(Vector3 point)
+    float GetRealDistance(Vector3 point)
     {
-        return IsTouching(point) && !IsDisabled() ? GetRealDistance(point) : 0;
+        Vector3 distance = transform.position - point;
+        Vector3 projectedDistance = Vector3.Project(distance, transform.forward);
+        return projectedDistance.magnitude;
     }
 
     bool IsInFront(Vector3 point)
@@ -46,21 +50,13 @@ public class ClippingPoint : MonoBehaviour
 
     public bool IsTouching(Vector3 point)
     {
-        Vector3 closest = collider.ClosestPoint(point);
+        Vector3 closest = postCollider.ClosestPoint(point);
         return closest == point;
     }
 
-    float GetRealDistance(Vector3 point)
-    {
-        Vector3 distance = transform.position - point;
-        Vector3 projectedDistance = Vector3.Project(distance, transform.forward);
-        return projectedDistance.magnitude;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
-        Gizmos.DrawRay(transform.position, direction);
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Car") {
+            onScore.Invoke(GetScore(other));
+        }
     }
 }

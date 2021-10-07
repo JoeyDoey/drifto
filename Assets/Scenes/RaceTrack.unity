@@ -260,7 +260,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 711799982}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &4417169
@@ -592,19 +592,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.51
+      value: 166.88
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.099999994
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 234.36
+      value: 234.18
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.67781264
+      value: 0.6944399
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -612,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7352347
+      value: 0.7195508
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalRotation.z
@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 94.65401
+      value: 92.035
       objectReference: {fileID: 0}
     - target: {fileID: 4400517460069692, guid: b7e4436a79296d8489474a482a267fb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -634,6 +634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098881066837142, guid: b7e4436a79296d8489474a482a267fb3,
+        type: 3}
+      propertyPath: minDriftAngle
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3216495876016933185, guid: b7e4436a79296d8489474a482a267fb3,
         type: 3}
@@ -723,7 +728,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -870,7 +875,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 916795345}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &32150174
@@ -1047,7 +1052,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1263,10 +1268,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -1739,7 +1749,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1783,18 +1793,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65980788}
   m_Mesh: {fileID: 928323532}
---- !u!134 &73044258
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!43 &74156225
 Mesh:
   m_ObjectHideFlags: 0
@@ -2366,18 +2364,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!134 &87233554
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &90044703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2489,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -3231,7 +3217,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -3514,6 +3500,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b01e11cefcd88046ae157118c81a469, type: 3}
+--- !u!4 &152226805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+    type: 3}
+  m_PrefabInstance: {fileID: 716030842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &153947732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4848,10 +4840,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -5319,7 +5316,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -6156,7 +6153,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 505261166}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &382173567
@@ -6217,18 +6214,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!134 &387519340
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &392367816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7209,7 +7194,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 387519340}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &435745708
@@ -7335,7 +7320,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 794476632}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &440917706
@@ -7352,30 +7337,6 @@ Transform:
   m_Father: {fileID: 953981339}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &447084187
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
---- !u!134 &450615742
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &450942930
 GameObject:
   m_ObjectHideFlags: 0
@@ -7675,9 +7636,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1154426738}
-  shoulderCutRPhysicMat: {fileID: 1271156586}
-  shoulderCutLPhysicMat: {fileID: 2012566921}
+  roadCutPhysicMat: {fileID: 0}
+  shoulderCutRPhysicMat: {fileID: 0}
+  shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &459345700
 Transform:
   m_ObjectHideFlags: 0
@@ -8020,7 +7981,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -8179,7 +8140,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 592168315}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &487672332
@@ -8326,7 +8287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -8387,6 +8348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClippingPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -8451,18 +8417,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 504383875}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &505261166
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &505670706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8514,7 +8468,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -8558,18 +8512,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505670706}
   m_Mesh: {fileID: 1944464742}
---- !u!134 &519490232
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &526756433
 GameObject:
   m_ObjectHideFlags: 0
@@ -8787,7 +8729,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -8934,7 +8876,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1415982713}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &530699446
@@ -9050,8 +8992,16 @@ MonoBehaviour:
   terrain: {fileID: 551794339}
   splatResoWidth: 1024
   splatResoHeight: 1024
-  splatBackground: {r: 0, g: 0, b: 0, a: 1}
-  splatForeground: {r: 1, g: 1, b: 1, a: 1}
+  splatBackground:
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  splatForeground:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
   splatWidth: 30
   isSplatSkipBridges: 0
   isSplatSkipTunnels: 0
@@ -9451,7 +9401,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -9909,18 +9859,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!134 &592168315
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &595057093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10348,18 +10286,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 596500870}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &597467075
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &600040830
 GameObject:
   m_ObjectHideFlags: 0
@@ -10463,7 +10389,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 447084187}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &600040832
@@ -11221,7 +11147,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1087647792}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &651398778
@@ -11295,7 +11221,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -11714,10 +11640,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -12451,18 +12382,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!134 &711799982
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!114 &715917337 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7461305155065991752, guid: f86caed73859639418b4c285e8ee32bf,
@@ -12475,6 +12394,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1654b3417d6cc314cb3cb0eacbafccf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &716030842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1564318195}
+    m_Modifications:
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_Name
+      value: ClippingPoint (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 63.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18641728
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8281528
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 6.570257e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.56050247
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.3312165e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 68.181
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8fad679bb906f8f4b8e374a6a6a42aca, type: 3}
 --- !u!43 &717532599
 Mesh:
   m_ObjectHideFlags: 0
@@ -13225,7 +13218,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1485331346}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &755469438
@@ -13302,6 +13295,36 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &763665135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763665136}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &763665136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763665135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764393581
 GameObject:
   m_ObjectHideFlags: 0
@@ -13353,7 +13376,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -13612,18 +13635,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 791481395}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &794476632
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &796914478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13836,7 +13847,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1327834224}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &801716609
@@ -13939,10 +13950,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -14181,7 +14197,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14231,18 +14247,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 158700328}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &839110610
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &857371926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14506,7 +14510,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 73044258}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &863824647
@@ -14574,7 +14578,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14799,7 +14803,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14987,18 +14991,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &916795345
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &919363243
 GameObject:
   m_ObjectHideFlags: 0
@@ -15102,7 +15094,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1435024777}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &919363245
@@ -15240,18 +15232,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &926301283
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!43 &928323532
 Mesh:
   m_ObjectHideFlags: 0
@@ -16782,6 +16762,7 @@ MonoBehaviour:
   RoadV1: {x: 361.237, y: 60.200012}
   RoadV2: {x: 361.237, y: 330.60388}
   RoadV3: {x: 15.400024, y: 330.60388}
+  GizmoDrawMeters: 1
 --- !u!114 &953981341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16799,6 +16780,7 @@ MonoBehaviour:
   mousePos: {x: 433.31723, y: 0, z: 635.43744}
   spline: {fileID: 953981340}
   isDrawingGizmos: 0
+  gizmoDrawMeters: 1
 --- !u!114 &953981342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16816,6 +16798,7 @@ MonoBehaviour:
   mousePos: {x: 475.03888, y: 0.31, z: 624.45624}
   spline: {fileID: 953981340}
   isDrawingGizmos: 0
+  gizmoDrawMeters: 1
 --- !u!1001 &955127315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16976,18 +16959,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &958994045
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &961141651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17078,18 +17049,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 53984979}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &965980630
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!43 &966037697
 Mesh:
   m_ObjectHideFlags: 0
@@ -17594,7 +17553,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 926301283}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1000332864
@@ -17641,10 +17600,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -17924,7 +17888,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -18232,18 +18196,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1062024166}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &1062394710
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &1066312166
 GameObject:
   m_ObjectHideFlags: 0
@@ -18344,7 +18296,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -18648,7 +18600,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1062394710}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1074047738
@@ -18831,7 +18783,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -18875,18 +18827,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087223186}
   m_Mesh: {fileID: 1264961108}
---- !u!134 &1087647792
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!4 &1098882278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1305622109846596226, guid: ba5f931d00859cf46b4a4e1dbefb8c8a,
@@ -19695,18 +19635,6 @@ PhysicMaterial:
   bounciness: 0
   frictionCombine: 0
   bounceCombine: 0
---- !u!134 &1154426738
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &1155805814
 GameObject:
   m_ObjectHideFlags: 0
@@ -19976,7 +19904,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 519490232}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1161803581
@@ -20431,10 +20359,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -20789,7 +20722,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1424072797}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1217311423
@@ -20857,7 +20790,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -22055,10 +21988,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1564318195}
     m_Modifications:
+    - target: {fileID: 3161122481503698473, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161122481503698473, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_Name
       value: ClippingPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824252, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 1519860449}
+    - target: {fileID: 5292894075558824252, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: maxDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -22188,18 +22141,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &1271156586
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Dirt
-  dynamicFriction: 0.4
-  staticFriction: 0.4
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!4 &1272498940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3217684672426499024, guid: b7e4436a79296d8489474a482a267fb3,
@@ -22640,18 +22581,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &1327834224
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!4 &1329317512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 836971472433584856, guid: bf7c78b7346a04c4c8f7e65eb537faa3,
@@ -22781,18 +22710,44 @@ MonoBehaviour:
   isProfiling: 0
   isSkippingStore: 1
   isEditorError: 0
+  editorTimer: 0
+  editorTimerMax: 0
+  editorTimerSpline: 0
   isUpdateRequired: 0
   isTriggeringGC: 0
+  isTriggeredGCExecuting: 0
+  triggerGCEnd: 0
+  EditorCameraNextMove: 0
+  isEditorCameraSetup: 0
+  EditorCameraStartPos: 0
+  EditorCameraEndPos: 1
+  EditorCameraIncrementDistance: 0
+  EditorCameraIncrementDistance_Full: 0
   EditorCameraMetersPerSecond: 60
   isEditorCameraRotated: 0
+  EditorCameraV1: {x: 0, y: 0, z: 0}
+  EditorCameraV2: {x: 0, y: 0, z: 0}
+  editorCameraBadVec: {x: 0, y: 0, z: 0}
   isEditorConstructing: 0
   editorConstructionID: 0
   isEditorSelected: 1
   isEditorMouseHittingTerrain: 0
   editorMousePos: {x: 433.31723, y: 0, z: 635.43744}
-  defaultNodeColor: {r: 0, g: 1, b: 1, a: 0.75}
-  selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  newNodePreviewColor: {r: 1, g: 0, b: 0, a: 1}
+  defaultNodeColor:
+    r: 0
+    g: 1
+    b: 1
+    a: 0.75
+  selectedColor:
+    r: 1
+    g: 0.92156863
+    b: 0.015686275
+    a: 1
+  newNodePreviewColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
   EditorCameraTimer: 0
 --- !u!1001 &1339584073
 PrefabInstance:
@@ -22806,10 +22761,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -24203,18 +24163,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dd4d28d5b51c5e42a4206408cfb9fee, type: 3}
---- !u!134 &1415982713
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &1418551696
 GameObject:
   m_ObjectHideFlags: 0
@@ -24251,18 +24199,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2146775362}
   m_PrefabAsset: {fileID: 0}
---- !u!134 &1424072797
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &1431369780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24471,18 +24407,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7c78b7346a04c4c8f7e65eb537faa3, type: 3}
---- !u!134 &1435024777
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!43 &1440951479
 Mesh:
   m_ObjectHideFlags: 0
@@ -25255,18 +25179,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5f931d00859cf46b4a4e1dbefb8c8a, type: 3}
---- !u!134 &1485331346
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!4 &1500263703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2621969457168161019, guid: 9b01e11cefcd88046ae157118c81a469,
@@ -25285,10 +25197,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -25523,6 +25440,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 20812674}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1519860449 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 65295854798841650, guid: b7e4436a79296d8489474a482a267fb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 20812674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!81 &1519860450
 AudioListener:
   m_ObjectHideFlags: 0
@@ -25634,7 +25557,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 965980630}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1528947630
@@ -25968,7 +25891,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -26063,8 +25986,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1564318195}
+  - component: {fileID: 1564318196}
   m_Layer: 0
-  m_Name: FrontClippingPoints
+  m_Name: ClippingPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26083,7 +26007,6 @@ Transform:
   m_Children:
   - {fileID: 1268207227}
   - {fileID: 504383876}
-  - {fileID: 2065000910}
   - {fileID: 887014273}
   - {fileID: 193341421}
   - {fileID: 92441435}
@@ -26096,9 +26019,22 @@ Transform:
   - {fileID: 1009135652}
   - {fileID: 1339584074}
   - {fileID: 1758397583}
+  - {fileID: 152226805}
   m_Father: {fileID: 777667073}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1564318196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564318194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2eb1c04e2bebe4438d49e917123765e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1565655855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1305622109846596226, guid: ba5f931d00859cf46b4a4e1dbefb8c8a,
@@ -26329,10 +26265,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -26497,7 +26438,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 958994045}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1623414694
@@ -27355,7 +27296,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1809719322}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1709710160
@@ -27638,7 +27579,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1961905041}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1735736264
@@ -28001,10 +27942,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -28771,18 +28717,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7c78b7346a04c4c8f7e65eb537faa3, type: 3}
---- !u!134 &1809719322
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1 &1810912039
 GameObject:
   m_ObjectHideFlags: 0
@@ -29126,7 +29060,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -29358,7 +29292,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 839110610}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1836617094
@@ -29595,7 +29529,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -29923,10 +29857,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
@@ -30161,7 +30100,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -30342,18 +30281,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5f931d00859cf46b4a4e1dbefb8c8a, type: 3}
---- !u!134 &1891345342
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &1891353146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31371,7 +31298,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 87233554}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &1953366207
@@ -31418,18 +31345,6 @@ Transform:
   m_Father: {fileID: 565008285}
   m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!134 &1961905041
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!1001 &1968841069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31721,7 +31636,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -31882,7 +31797,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 597467075}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!134 &1997569427
@@ -32103,18 +32018,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b01e11cefcd88046ae157118c81a469, type: 3}
---- !u!134 &2012566921
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Dirt
-  dynamicFriction: 0.4
-  staticFriction: 0.4
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!4 &2015847118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 836971472433584856, guid: bf7c78b7346a04c4c8f7e65eb537faa3,
@@ -32677,7 +32580,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 450615742}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &2028619987
@@ -32745,7 +32648,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -33197,7 +33100,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 1891345342}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &2054420854
@@ -33244,81 +33147,6 @@ Transform:
   m_Father: {fileID: 1066312168}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2065000908
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1564318195}
-    m_Modifications:
-    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_Name
-      value: ClippingPoint (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 63.523605
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.18641728
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.5083923
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8030398
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -5.15318e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.59592545
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.000000008622252
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 73.157005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8fad679bb906f8f4b8e374a6a6a42aca, type: 3}
---- !u!4 &2065000910 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
-    type: 3}
-  m_PrefabInstance: {fileID: 2065000908}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2069085037
 GameObject:
   m_ObjectHideFlags: 0
@@ -33901,7 +33729,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3045ccaff8af5b945aaa81275a3b903a, type: 2}
   shoulderCutRMarkerMats: []
   shoulderCutLMarkerMats: []
-  roadCutPhysicMat: {fileID: 2139818623}
+  roadCutPhysicMat: {fileID: 0}
   shoulderCutRPhysicMat: {fileID: 0}
   shoulderCutLPhysicMat: {fileID: 0}
 --- !u!4 &2127693620
@@ -34171,18 +33999,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!134 &2139818623
-PhysicMaterial:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pavement
-  dynamicFriction: 1
-  staticFriction: 2
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 0
 --- !u!134 &2143374186
 PhysicMaterial:
   m_ObjectHideFlags: 0
@@ -34246,7 +34062,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0507e1e4370429b4bb425498fbf1a165, type: 2}
+  - {fileID: -214408976003287954, guid: a3f319cbf906f7f47903799b7d677dd3, type: 3}
   - {fileID: 2100000, guid: 576b30ace62aa7240bbbba9efd4d4c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -34332,10 +34148,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClippingPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5292894075558824250, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5292894075558824253, guid: 8fad679bb906f8f4b8e374a6a6a42aca,
         type: 3}

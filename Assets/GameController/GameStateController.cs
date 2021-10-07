@@ -62,13 +62,10 @@ namespace GameController
             {
                 case GameState.pregame:
                     return pregameStateInfo;
-                    break;
                 case GameState.game:
                     return gameStateInfo;
-                    break;
                 case GameState.postgame:
                     return postgameStateInfo;
-                    break;
             }
             return postgameStateInfo;
         }

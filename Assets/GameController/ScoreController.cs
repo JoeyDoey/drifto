@@ -7,106 +7,44 @@ namespace GameController
 {
     /// Takes into consideration speed, angle, time in drift, and clipping points.
     /// </summary>
-    public class ScoreController : MonoBehaviour
+    public class ScoreController : AScoreController
     {
         public Car.Car car;
-        public float masterMultiplier = 1f;
-        public float minDriftAngle = 5f;
-        public float minSpeed = 5f;
-        float score = 0;
-        [Header("Drift Time Multiplier")]
-        public float multiplerDecaySpeed = 1f;
-        public float timeMultiplerScale = 1f;
+        float score;
+        float currentDriftTime;
         float timeSinceDrift;
-        float currentMultiplier = 0;
-        float lastUndecayedMultiplier;
-        [Header("Clipping Points")]
-        public Transform clippingPoints;
-        public float minClippingPointScore = 2f;
-        public float maxClippingPointScore = 10f;
-        public float maxClippingPointDistance = 5f;
-        public float minClippingPointDistance = 1f;
-        public ClippingPointEvent onClippingPoint;
 
-        void Start()
+        void Awake()
         {
             score = 0;
+            currentDriftTime = 0;
             timeSinceDrift = 0;
         }
 
         void Update()
         {
-            UpdateMultiplier(IsDrifting());
             score += GetInstantScore() * Time.deltaTime * masterMultiplier;
         }
 
-        void FixedUpdate()
-        {
-            UpdateClipping();
+        private void FixedUpdate() {
+            if (car.IsDrifting()) {
+                currentDriftTime += Time.fixedDeltaTime;
+                timeSinceDrift = 0;
+            } else if (timeSinceDrift < maxTimeBetweenDrift) {
+                timeSinceDrift += Time.fixedDeltaTime;
+            } else {
+                currentDriftTime = 0;
+            }
         }
 
-        public float GetScore()
+        public override float GetScore()
         {
             return score;
         }
 
-        bool IsDrifting()
+        public override float GetMultiplier()
         {
-            return Mathf.Abs(car.GetDriftAngle()) >= minDriftAngle && Mathf.Abs(car.GetVelocity().magnitude) >= minSpeed;
-        }
-
-        /// <summary>
-        /// Check the clipping points.
-        /// 
-        /// If the frontCheck position of the car is in the clipping point convert the distance into points.
-        /// 
-        /// </summary>
-        void UpdateClipping()
-        {
-            int i = 0;
-            foreach (Transform trans in clippingPoints)
-            {
-                ClippingPoint clip = trans.gameObject.GetComponent<ClippingPoint>();
-                if (!clip.IsDisabled() && clip.IsTouching(car.frontCheck.position))
-                {
-                    float distance = clip.GetDistanceTo(car.frontCheck.position);
-                    if (distance <= maxClippingPointDistance)
-                    {
-                        clip.TempDisable();
-
-                        float scoreRange = (maxClippingPointScore - minClippingPointScore);
-                        float t = 1 - Mathf.Max(distance - minClippingPointDistance, 0) / maxClippingPointDistance;
-                        float pointScore = (minClippingPointScore + scoreRange * t);
-
-                        int s = (int)pointScore;
-                        score += s;
-                        onClippingPoint.Invoke(s, i);
-                    }
-                }
-                i++;
-            }
-        }
-
-        void UpdateMultiplier(bool isDrifting)
-        {
-            if (!isDrifting)
-            {
-                timeSinceDrift += Time.deltaTime;
-
-                // Decay the multiplier
-                currentMultiplier = Mathf.Max(0, lastUndecayedMultiplier - timeSinceDrift * timeSinceDrift * multiplerDecaySpeed);
-            }
-            else
-            {
-                currentMultiplier += Time.deltaTime * timeMultiplerScale;
-                lastUndecayedMultiplier = currentMultiplier;
-                timeSinceDrift = 0;
-            }
-        }
-
-        public float GetMultiplier()
-        {
-            return currentMultiplier;
+            return currentDriftTime;
         }
 
         float GetInstantScore()
@@ -114,20 +52,10 @@ namespace GameController
             float angle = Mathf.Abs(car.GetDriftAngle());
             float speed = Mathf.Abs(car.GetVelocity().magnitude);
 
-            if (angle < minDriftAngle) angle = 0;
             if (speed < minSpeed) speed = 0;
 
             float rawScore = angle * speed;
             return rawScore * GetMultiplier();
         }
     }
-
-    /// <summary>
-    /// (score, index)
-    /// /// </summary>
-    [System.Serializable]
-    public class ClippingPointEvent : UnityEvent<int, int>
-    {
-    }
-
 }

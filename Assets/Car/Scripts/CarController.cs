@@ -22,6 +22,9 @@ namespace Car
 
         [SerializeField] CarConfig CarConfig;
 
+        [Header("Drifto things")]
+        [SerializeField] float minDriftAngle;
+
         #region Properties of car parameters
 
         float MaxMotorTorque;
@@ -95,6 +98,10 @@ namespace Car
         int FirstDriveWheel;
         int LastDriveWheel;
 
+        public override bool IsDrifting() {
+            return Mathf.Abs(VelocityAngle) > minDriftAngle;
+        }
+
         private void Awake()
         {
             rigidbody = RB;
@@ -158,7 +165,7 @@ namespace Car
 
         public override float GetDriftAngle()
         {
-            return VelocityAngle;
+            return IsDrifting()? VelocityAngle: 0;
         }
 
         public override Vector3 GetVelocity()

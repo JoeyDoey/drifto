@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TextSetScore : MonoBehaviour
 {
     public Text text;
-    public GameController.ScoreController scoreHandler;
+    public GameController.AScoreController scoreHandler;
 
     void Update()
     {
