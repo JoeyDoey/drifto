@@ -13,28 +13,40 @@ namespace GameController
         float score;
         float currentDriftTime;
         float timeSinceDrift;
+        float currentRunScore;
 
         void Awake()
         {
             score = 0;
+            currentRunScore = 0;
             currentDriftTime = 0;
             timeSinceDrift = 0;
         }
 
-        void Update()
+        private void Update()
         {
-            score += GetInstantScore() * Time.deltaTime * masterMultiplier;
+            if (car.IsDrifting())
+            {
+                // currentRunScore += GetInstantScore() * Time.deltaTime * masterMultiplier;
+                score += GetInstantScore() * Time.deltaTime * masterMultiplier;
+                currentDriftTime += Time.deltaTime;
+                timeSinceDrift = 0;
+            }
+            else if (timeSinceDrift < maxTimeBetweenDrift)
+            {
+                timeSinceDrift += Time.deltaTime;
+            }
+            else
+            {
+                currentDriftTime = 0;
+                score += currentRunScore;
+                currentRunScore = 0;
+            }
         }
 
-        private void FixedUpdate() {
-            if (car.IsDrifting()) {
-                currentDriftTime += Time.fixedDeltaTime;
-                timeSinceDrift = 0;
-            } else if (timeSinceDrift < maxTimeBetweenDrift) {
-                timeSinceDrift += Time.fixedDeltaTime;
-            } else {
-                currentDriftTime = 0;
-            }
+        public override int GetClippingPoints()
+        {
+            return 0;
         }
 
         public override float GetScore()
@@ -44,7 +56,7 @@ namespace GameController
 
         public override float GetMultiplier()
         {
-            return currentDriftTime;
+            return Mathf.Min(maxMultiplier, currentDriftTime);
         }
 
         float GetInstantScore()

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ClippingPointController : MonoBehaviour
 {
+    public FloatEvent onScore;
     void Start()
     {
         // Subscribe to all clipping point onScore events
@@ -11,9 +13,9 @@ public class ClippingPointController : MonoBehaviour
         {
             if (child.gameObject.activeSelf)
             {
-                if (child.TryGetComponent(out ClippingPoint clippingPoint))
+                if (child.TryGetComponent(out IClippingPoint clippingPoint))
                 {
-                    clippingPoint.onScore.AddListener(OnChildCollision);
+                    ((AClippingPoint) clippingPoint).onScore.AddListener(OnChildCollision);
                 }
             }
         }
@@ -21,6 +23,7 @@ public class ClippingPointController : MonoBehaviour
 
     public void OnChildCollision(float score)
     {
+        onScore.Invoke(score);
         Debug.Log(score);
     }
 }

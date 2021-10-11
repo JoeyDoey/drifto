@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(ClippingPoint))]
-public class ClippingPointEditor : Editor
+[CustomEditor(typeof(SectionedClippingPoint))]
+public class SectionedClippingPointEditor : Editor
 {
-    ClippingPoint current;
+    SectionedClippingPoint current;
     
     void OnEnable()
     {
-        current = target as ClippingPoint;
+        current = target as SectionedClippingPoint;
     }
 
     private void OnSceneGUI() {
