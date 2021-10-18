@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable] public class FloatEvent: UnityEvent<float> {}
+[System.Serializable] public class ClippingPointEvent : UnityEvent<AClippingPoint, float> { }
 
-public interface IClippingPoint {
+public interface IClippingPoint
+{
     /// <summary>
     /// Assuming the point is the the range, get the score at point
     /// <summary>
@@ -19,7 +20,8 @@ public interface IClippingPoint {
 
 public abstract class AClippingPoint : MonoBehaviour, IClippingPoint
 {
-    public FloatEvent onScore = new FloatEvent();
+    public ClippingPointEvent onScore = new ClippingPointEvent();
+    protected bool disabled;
 
     /// <summary>
     /// Assuming the point is the the range, get the score at point
@@ -29,8 +31,9 @@ public abstract class AClippingPoint : MonoBehaviour, IClippingPoint
     /// <summary>
     /// Assuming the point is the the range, get the score of the collider
     /// <summary>
-    public float GetScore(Collider collider) {
-        return GetScore(collider.ClosestPoint(transform.position));
+    public float GetScore(Collider collider)
+    {
+        return disabled ? 0 : GetScore(collider.ClosestPoint(transform.position));
     }
 
     /// <summary>
@@ -51,9 +54,11 @@ public abstract class AClippingPoint : MonoBehaviour, IClippingPoint
         return Vector3.Cross(otherVec, thisVec).y < 0;
     }
 
-    public void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Car") {
-            onScore.Invoke(GetScore(other));
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Car")
+        {
+            onScore.Invoke(this, GetScore(other));
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClippingPointUI : MonoBehaviour
+public class ClippingPointUIOld : MonoBehaviour
 {
     public Text[] texts;
     float[] timers;

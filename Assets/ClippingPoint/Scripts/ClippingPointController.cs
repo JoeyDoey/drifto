@@ -5,9 +5,15 @@ using UnityEngine.Events;
 
 public class ClippingPointController : MonoBehaviour
 {
-    public FloatEvent onScore;
+    public ClippingPointEvent onScore;
+    public UnityEvent rawOnScore;
+
+    int numCollisions;
+
     void Start()
     {
+        numCollisions = 0;
+
         // Subscribe to all clipping point onScore events
          foreach (Transform child in transform)
         {
@@ -21,9 +27,14 @@ public class ClippingPointController : MonoBehaviour
         }
     }
 
-    public void OnChildCollision(float score)
+    public int GetClippingPoints() {
+        return numCollisions;
+    }
+
+    public void OnChildCollision(AClippingPoint clippingPoint, float score)
     {
-        onScore.Invoke(score);
-        Debug.Log(score);
+        numCollisions += 1;
+        onScore.Invoke(clippingPoint, score);
+        rawOnScore.Invoke();
     }
 }

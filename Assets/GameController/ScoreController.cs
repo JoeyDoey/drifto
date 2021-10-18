@@ -46,7 +46,7 @@ namespace GameController
 
         public override int GetClippingPoints()
         {
-            return 0;
+            return clippingPointController.GetClippingPoints();
         }
 
         public override float GetScore()
